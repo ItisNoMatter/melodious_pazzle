@@ -5,6 +5,12 @@ public class PlayerMove : MonoBehaviour
 {
 	public float speed = 10.0f;
 
+	[SerializeField] private Transform target;
+
+	void Start()
+    {
+	}
+
 	// Update is called once per frame
 	void Update()
 	{
@@ -16,5 +22,10 @@ public class PlayerMove : MonoBehaviour
 		{
 			transform.position -= transform.right * speed * Time.deltaTime;
 		}
+
+		Vector3 pos = target.position;
+
+		Debug.Log(pos.x);
+
 	}
 }
