@@ -29,7 +29,7 @@ $ git branch
 )  
 作業が終わったら**Unityプロジェクトを一度閉じてから**、コミットしてプッシュしましょう.  
   
-`git pull origin main`
+`git pull origin main`  
 `git add .` or `git add hogehoge`  
 `git commit -m "fix issue"`  
 `git push origin fix_0_XXXXXX`  
@@ -50,4 +50,4 @@ $ git branch
 2. 右上の緑のボタン(`Review change`)を選択し、問題があればコメントorなければ`approve`(プルリクを承認)する.  
 3. 最後に`approve`した人がマージしましょう. ここでconflictを起こしていたら、無理にマージせずメンバーに相談しましょう.  
   - コードレビューのコメントに対しては修正後にその旨を返信し、レビュアーは問題が解決したらコメントをcloseする.  
-4. マージができたら用が済んだissueをcloseし、`git checkout main`→`git pull origin main`で手元のメインブランチを最新の状態にするのを忘れずに.
+4. マージができたら用が済んだissueをcloseし、`git checkout main`→`git pull origin main`で手元のmainブランチを最新の状態にするのを忘れずに.
