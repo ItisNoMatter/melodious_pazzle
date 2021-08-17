@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerMove : MonoBehaviour
 {
-	public float speed = 10.0f;
+	public float speed = 30.0f;
 
 	[SerializeField] private Transform target;
 
@@ -14,18 +14,39 @@ public class PlayerMove : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		Vector3 pos = target.position;
+
 		if (Input.GetKey("right"))
 		{
-			transform.position += transform.right * speed * Time.deltaTime;
+			if (pos.z < -4.8)
+			{
+				// pos.z = -4.9f;
+				transform.position -= transform.right * speed * Time.deltaTime;
+				Debug.Log(pos);
+			}
+			else
+			{
+				transform.position += transform.right * speed * Time.deltaTime;
+			}
+
 		}
 		if (Input.GetKey("left"))
 		{
-			transform.position -= transform.right * speed * Time.deltaTime;
+			if (pos.z > 5.6)
+			{
+				// pos.z = 5.7f;
+				transform.position += transform.right * speed * Time.deltaTime;
+				Debug.Log(pos);
+			}
+			else
+			{
+				transform.position -= transform.right * speed * Time.deltaTime;
+			}
 		}
 
-		Vector3 pos = target.position;
+		//Vector3 pos = target.position;
 
-		Debug.Log(pos.x);
+		// Debug.Log(pos); // zç¿ïWÇ™â¬ïœ
 
 	}
 }
