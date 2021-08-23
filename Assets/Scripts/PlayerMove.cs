@@ -5,23 +5,32 @@ public class PlayerMove : MonoBehaviour
 {
 	public float speed = 30.0f;
 
+	private Camera _fieldCamera;
 	[SerializeField] private Transform target;
 
 	void Start()
     {
+		GameObject obj = GameObject.Find("Field Camera");
+		_fieldCamera = obj.GetComponent<Camera>();
+
+		// 画面の端点の座標
+		Debug.Log(getScreenTopRight().x);
+		Debug.Log(getScreenTopRight().y);
+		Debug.Log(getScreenBottomLeft().x);
+		Debug.Log(getScreenBottomLeft().y);
+
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		Vector3 pos = target.position;
+		Vector3 playerPosition = target.position;
 
 		if (Input.GetKey("right"))
 		{
-			if (pos.y < -4.8)
+			if (playerPosition.x > getScreenTopRight().x)
 			{
 				transform.position -= transform.right * speed * Time.deltaTime;
-				Debug.Log(pos);
 			}
 			else
 			{
@@ -31,10 +40,9 @@ public class PlayerMove : MonoBehaviour
 		}
 		if (Input.GetKey("left"))
 		{
-			if (pos.y > 5.6)
+			if (playerPosition.x < getScreenBottomLeft().x)
 			{
 				transform.position += transform.right * speed * Time.deltaTime;
-				Debug.Log(pos);
 			}
 			else
 			{
@@ -43,16 +51,40 @@ public class PlayerMove : MonoBehaviour
 		}
 		if (Input.GetKey("up"))
 		{
-			transform.position += transform.up * speed * Time.deltaTime;
+			if (playerPosition.y > getScreenTopRight().y)
+			{
+				transform.position -= transform.up * speed * Time.deltaTime;
+			}
+            else
+			{
+				transform.position += transform.up * speed * Time.deltaTime;
+			}
 		}
 		if (Input.GetKey("down"))
 		{
-			transform.position -= transform.up * speed * Time.deltaTime;
+			if (playerPosition.y < getScreenBottomLeft().y)
+			{
+				transform.position += transform.up * speed * Time.deltaTime;
+			}
+			else
+			{
+				transform.position -= transform.up * speed * Time.deltaTime;
+			}
 		}
 
-		//Vector3 pos = target.position;
+	}
 
-		// Debug.Log(pos); // z座標が可変
+	private Vector3 getScreenBottomLeft()
+	{
+		// 画面の左上を取得
+		Vector3 bottomLeft = _fieldCamera.ScreenToWorldPoint(Vector3.zero);
+		return bottomLeft;
+	}
 
+	private Vector3 getScreenTopRight()
+	{
+		// 画面の右下を取得
+		Vector3 topRight = _fieldCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0.0f));
+		return topRight;
 	}
 }
