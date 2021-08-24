@@ -4,7 +4,8 @@ using System;
 
 public class PlayerMove : MonoBehaviour
 {
-	public float speed = 30.0f;
+	public float speed;
+	public float bpm;
 	private float time; //経過した時間を受け取る変数
 	private Camera _fieldCamera;
 	[SerializeField] private Transform target;
@@ -22,7 +23,7 @@ public class PlayerMove : MonoBehaviour
 		Debug.Log(getScreenBottomLeft().y);
 
 		// コルーチンの起動
-		StartCoroutine(DelayCoroutine(0.5f, () =>
+		StartCoroutine(DelayCoroutine(bpm, () =>
 		{
 			// 0.5秒後にここの処理が実行される
 			Instantiate(locusObject, this.transform.position, Quaternion.identity);
