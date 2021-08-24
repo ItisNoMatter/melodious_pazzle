@@ -20,19 +20,21 @@ public class AudioPlayer : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D other) {
-        
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "notes")
+        {
             audiosource.PlayOneShot(audioclip);
             Destroy(other.gameObject);
-            Debug.Log("“–‚½‚è‚Ü‚µ‚½");
-        
+        }
+    
     }
     /*{
         if (other.collider.tag == "notes")
         {
             audiosource.PlayOneShot(audioclip);
             Destroy(other.gameObject);
-            Debug.Log("“–‚½‚è‚Ü‚µ‚½");
+    Debug.Log("“–‚½‚è‚Ü‚µ‚½");
         }
     }*/
 }

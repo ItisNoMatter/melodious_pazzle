@@ -18,20 +18,9 @@ public class locusObject : MonoBehaviour
     {
         // 経過時間をカウント
         step_time += Time.deltaTime;
+        transform.position -= transform.right * speed * Time.deltaTime;
+        step_time = 0.0f;  // 経過時間初期化
 
-        // 1秒後に実行
-       // if (step_time >= 1.0f)
-        //{
-            transform.position -= transform.right * speed * Time.deltaTime;
-            step_time = 0.0f;  // 経過時間初期化
-        //}
     }
 
-    public void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.collider.tag == "Finish")
-        {
-            Debug.Log("当たりました");
-        }
-    }
 }
