@@ -1,12 +1,14 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class PlayerMove : MonoBehaviour
 {
 	public float speed = 30.0f;
-
+	private float time; //経過した時間を受け取る変数
 	private Camera _fieldCamera;
 	[SerializeField] private Transform target;
+	[SerializeField] public GameObject locusObject; //自機から発生して、左に移動していくオブジェクト(プレハブ)
 
 	void Start()
     {
@@ -19,7 +21,22 @@ public class PlayerMove : MonoBehaviour
 		Debug.Log(getScreenBottomLeft().x);
 		Debug.Log(getScreenBottomLeft().y);
 
+		// コルーチンの起動
+		StartCoroutine(DelayCoroutine(3, () =>
+		{
+			// 3秒後にここの処理が実行される
+			Instantiate(locusObject, this.transform.position, Quaternion.identity);
+		}));
+
 	}
+
+	// 一定時間後に処理を呼び出すコルーチン
+	private IEnumerator DelayCoroutine(float seconds, Action action)
+	{
+		yield return new WaitForSeconds(seconds);
+		action?.Invoke();
+	}
+
 
 	// Update is called once per frame
 	void Update()
@@ -71,7 +88,13 @@ public class PlayerMove : MonoBehaviour
 				transform.position -= transform.up * speed * Time.deltaTime;
 			}
 		}
+		//3秒後に軌跡を描くオブジェクトを生成
+		Invoke(nameof(InstantLocusObject), 3.0f);
+	}
 
+	private void InstantLocusObject()
+    {
+		Instantiate(locusObject, this.transform.position, Quaternion.identity);
 	}
 
 	private Vector3 getScreenBottomLeft()
