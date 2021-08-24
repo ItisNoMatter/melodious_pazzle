@@ -22,7 +22,7 @@ public class PlayerMove : MonoBehaviour
 		Debug.Log(getScreenBottomLeft().y);
 
 		// コルーチンの起動
-		StartCoroutine(DelayCoroutine(3, () =>
+		StartCoroutine(DelayCoroutine(3.0f, () =>
 		{
 			// 3秒後にここの処理が実行される
 			Instantiate(locusObject, this.transform.position, Quaternion.identity);
@@ -33,8 +33,11 @@ public class PlayerMove : MonoBehaviour
 	// 一定時間後に処理を呼び出すコルーチン
 	private IEnumerator DelayCoroutine(float seconds, Action action)
 	{
-		yield return new WaitForSeconds(seconds);
-		action?.Invoke();
+		while (true)
+		{
+			yield return new WaitForSeconds(seconds);
+			action?.Invoke();
+		}
 	}
 
 
@@ -88,13 +91,7 @@ public class PlayerMove : MonoBehaviour
 				transform.position -= transform.up * speed * Time.deltaTime;
 			}
 		}
-		//3秒後に軌跡を描くオブジェクトを生成
-		Invoke(nameof(InstantLocusObject), 3.0f);
-	}
-
-	private void InstantLocusObject()
-    {
-		Instantiate(locusObject, this.transform.position, Quaternion.identity);
+		
 	}
 
 	private Vector3 getScreenBottomLeft()

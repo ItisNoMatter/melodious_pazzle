@@ -22,7 +22,7 @@ public class AudioPlayer : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.collider.tag == "Respawn")
+        if (other.collider.tag == "notes")
         {
             audiosource.PlayOneShot(audioclip);
             Debug.Log("“–‚½‚è‚Ü‚µ‚½");
