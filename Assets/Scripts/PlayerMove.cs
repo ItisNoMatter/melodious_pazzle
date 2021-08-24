@@ -22,9 +22,9 @@ public class PlayerMove : MonoBehaviour
 		Debug.Log(getScreenBottomLeft().y);
 
 		// コルーチンの起動
-		StartCoroutine(DelayCoroutine(3.0f, () =>
+		StartCoroutine(DelayCoroutine(0.5f, () =>
 		{
-			// 3秒後にここの処理が実行される
+			// 0.5秒後にここの処理が実行される
 			Instantiate(locusObject, this.transform.position, Quaternion.identity);
 		}));
 
