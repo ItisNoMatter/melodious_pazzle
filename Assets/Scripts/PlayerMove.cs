@@ -2,19 +2,49 @@ using UnityEngine;
 using System.Collections;
 using System;
 
+using System.Collections.Generic;
+
+using UniRx;
+
 public class PlayerMove : MonoBehaviour
 {
 	public float speed;
-	public float bpm;
+	float bpm;
 	private float time; //経過した時間を受け取る変数
 	private Camera _fieldCamera;
+
 	[SerializeField] private Transform target;
 	[SerializeField] public GameObject locusObject; //自機から発生して、左に移動していくオブジェクト(プレハブ)
+
+//	[SerializeField] string FilePath;
+	string Title;
+	List<GameObject> Notes;
+
+	// 譜面を読み込むための関数
+	float JsonReader()
+	{
+		string jsonText = Resources.Load<TextAsset>("Sample").ToString();
+
+		JsonNode json = JsonNode.Parse(jsonText);
+		Title = json["title"].Get<string>();
+		bpm = 60 / float.Parse(json["bpm"].Get<string>());
+
+		foreach (var note in json["notes"])
+		{
+			string type = note["type"].Get<string>();
+			float timing = float.Parse(note["timing"].Get<string>());
+		}
+
+		return bpm;
+	}
+
 
 	void Start()
     {
 		GameObject obj = GameObject.Find("Field Camera");
 		_fieldCamera = obj.GetComponent<Camera>();
+
+		bpm = JsonReader();
 
 		// 画面の端点の座標
 		Debug.Log(getScreenTopRight().x);
