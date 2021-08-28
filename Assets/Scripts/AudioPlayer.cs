@@ -7,7 +7,6 @@ public class AudioPlayer : MonoBehaviour
     [SerializeField]AudioClip audioclip;
     AudioSource audiosource;
 
-
     // Start is called before the first frame update
     void Start()
     {
