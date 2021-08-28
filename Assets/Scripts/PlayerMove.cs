@@ -2,28 +2,100 @@ using UnityEngine;
 using System.Collections;
 using System;
 
+using System.Collections.Generic;
+
+using UniRx;
+
 public class PlayerMove : MonoBehaviour
 {
 	public float speed;
-	public float bpm;
+	float bpm;
 	private float time; //経過した時間を受け取る変数
 	private Camera _fieldCamera;
+
 	[SerializeField] private Transform target;
 	[SerializeField] public GameObject locusObject; //自機から発生して、左に移動していくオブジェクト(プレハブ)
+
+//	[SerializeField] string FilePath;
+	string Title;
+	List<GameObject> Notes;
+	float ticks;
+	List<float> ticksList = new List<float>();
+
+
+	[Serializable]
+	public class InputJson
+    {
+		public string header;
+		public Blocks[] tracks;
+    }
+
+
+	[Serializable]
+	public class Blocks
+    {
+		public int channel;
+		public string cintrolChanges;
+		public string pitch;
+		public string[] instrument;
+		public string name;
+		public elements[] notes;
+		public float end;
+    }
+
+
+	[Serializable]
+	public class elements
+    {
+		public float duration;
+		public float durationTicks;
+		public float midi;
+		public string name;
+		public float ticks;
+		public float time;
+		public float velocity;
+    }
+
+	// 譜面を読み込むための関数
+	float JsonReader()
+	{
+		string inputString = Resources.Load<TextAsset>("Ramen").ToString();
+
+		InputJson inputjson = JsonUtility.FromJson<InputJson>(inputString);
+		//Title = json["title"].Get<string>();
+		//bpm = 60 / float.Parse(json["bpm"].Get<string>());
+
+		foreach(var track in inputjson.tracks){
+			foreach(var note in track.notes)
+            {
+				ticksList.Add(note.ticks);
+			}
+		}
+		
+		return bpm;
+	}
+
 
 	void Start()
     {
 		GameObject obj = GameObject.Find("Field Camera");
 		_fieldCamera = obj.GetComponent<Camera>();
 
+		ticks = JsonReader();
+		Debug.Log(ticksList[0]);
+
+		
+
 		// 画面の端点の座標
-		Debug.Log(getScreenTopRight().x);
-		Debug.Log(getScreenTopRight().y);
-		Debug.Log(getScreenBottomLeft().x);
-		Debug.Log(getScreenBottomLeft().y);
+		//		Debug.Log(getScreenTopRight().x);
+		//		Debug.Log(getScreenTopRight().y);
+		//		Debug.Log(getScreenBottomLeft().x);
+		//		Debug.Log(getScreenBottomLeft().y);
+
+
 
 		// コルーチンの起動
-		StartCoroutine(DelayCoroutine(bpm, () =>
+		StartCoroutine(DelayCoroutine(ticks, () =>
 		{
 			// 0.5秒後にここの処理が実行される
 			Instantiate(locusObject, this.transform.position, Quaternion.identity);
