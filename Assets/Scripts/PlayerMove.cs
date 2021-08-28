@@ -9,12 +9,11 @@ using UniRx;
 public class PlayerMove : MonoBehaviour
 {
 	public float speed;
-	float bpm;
-	private float time; //Œo‰ß‚µ‚½ŠÔ‚ğó‚¯æ‚é•Ï”
 	private Camera _fieldCamera;
 
 	[SerializeField] private Transform target;
-	[SerializeField] public GameObject locusObject; //©‹@‚©‚ç”­¶‚µ‚ÄA¶‚ÉˆÚ“®‚µ‚Ä‚¢‚­ƒIƒuƒWƒFƒNƒg(ƒvƒŒƒnƒu)
+	[SerializeField] public GameObject locusObject; //ï¿½ï½½ï¿½ï½½ï¿½ï½½@ï¿½ï½½ï¿½ï½½ï¿½ï½½é€•ï½­ï¿½ï½½ï¿½ï½½ï¿½ï½½ï¿½ï½½ï¿½ï½½ï¾„ã€ï¿½ï½½ï¿½ï½½ï¿½ï½½ï¾‰ç§»é›£ï½¿ï½½ï¿½ï½½ï¿½ï½½ï¿½ï½½ï¾„ã‚‘ï½¿ï½½ï¿½ï½½ï¿½ï½½ï¿½ï½½Iï¿½ï½½uï¿½ï½½Wï¿½ï½½Fï¿½ï½½Nï¿½ï½½g(ï¿½ï½½vï¿½ï½½ï¿½ï½½ï¿½ï½½nï¿½ï½½u)
+	
 
 //	[SerializeField] string FilePath;
 	string Title;
@@ -56,7 +55,7 @@ public class PlayerMove : MonoBehaviour
 		public float velocity;
     }
 
-	// •ˆ–Ê‚ğ“Ç‚İ‚Ş‚½‚ß‚ÌŠÖ”
+	// è­œé¢ã‚’èª­ã¿è¾¼ã‚€ãŸã‚ã®é–¢æ•°
 	float JsonReader()
 	{
 		string inputString = Resources.Load<TextAsset>("Ramen").ToString();
@@ -80,30 +79,16 @@ public class PlayerMove : MonoBehaviour
     {
 		GameObject obj = GameObject.Find("Field Camera");
 		_fieldCamera = obj.GetComponent<Camera>();
+		cycle=60/bpm;
 
-		ticks = JsonReader();
-		Debug.Log(ticksList[0]);
-
-		
-
-		// ‰æ–Ê‚Ì’[“_‚ÌÀ•W
-		//		Debug.Log(getScreenTopRight().x);
-		//		Debug.Log(getScreenTopRight().y);
-		//		Debug.Log(getScreenBottomLeft().x);
-		//		Debug.Log(getScreenBottomLeft().y);
-
-
-
-		// ƒRƒ‹[ƒ`ƒ“‚Ì‹N“®
-		StartCoroutine(DelayCoroutine(ticks, () =>
 		{
-			// 0.5•bŒã‚É‚±‚±‚Ìˆ—‚ªÀs‚³‚ê‚é
+			// 0.5ï¿½ï½½bï¿½ï½½ï¿½ï½½ï¾‰ã‚‘ï½¿ï½½ï¿½ï½½ï¿½ï½½ï¿½ï½½ï¾Œæ“¾ï½¿ï½½ï¿½ï½½ï¿½ï½½ï¿½ï½½ï¿½ï½½ï¿½ï½½ï¿½ï½½ï¿½ï½½sï¿½ï½½ï¿½ï½½ï¿½ï½½ï¿½ï½½ï¿½ï½½
 			Instantiate(locusObject, this.transform.position, Quaternion.identity);
 		}));
 
 	}
 
-	// ˆê’èŠÔŒã‚Éˆ—‚ğŒÄ‚Ño‚·ƒRƒ‹[ƒ`ƒ“
+	// ï¿½ï½½ï¿½ï½½é—”æ©¸ï½¿ï½½ï¾”é¯‰ï½¿ï½½ï¾‰æ“¾ï½¿ï½½ï¿½ï½½ï¿½ï½½ï¿½ï½½ï¿½ï½½ï¿½ï½½ï¾„ã³å‡ºï¿½ï½½ï¿½ï½½ï¿½ï½½Rï¿½ï½½ï¿½ï½½ï¿½ï½½[ï¿½ï½½`ï¿½ï½½ï¿½ï½½
 	private IEnumerator DelayCoroutine(float seconds, Action action)
 	{
 		while (true)
@@ -169,14 +154,14 @@ public class PlayerMove : MonoBehaviour
 
 	private Vector3 getScreenBottomLeft()
 	{
-		// ‰æ–Ê‚Ì¶ã‚ğæ“¾
+		// ï¿½ï½½ï¿½ï½½ï¾Šã®æ¾ï½¿ï½½ï¿½ï½½ï¿½ï½½ï¿½ï½½ï¿½ï½½è¬«ï½¾
 		Vector3 bottomLeft = _fieldCamera.ScreenToWorldPoint(Vector3.zero);
 		return bottomLeft;
 	}
 
 	private Vector3 getScreenTopRight()
 	{
-		// ‰æ–Ê‚Ì‰E‰º‚ğæ“¾
+		// ï¿½ï½½ï¿½ï½½ï¾Šã®å³ï¿½ï½½ï¿½ï½½ï¿½ï½½ï¿½ï½½ï¿½ï½½è¬«ï½¾
 		Vector3 topRight = _fieldCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0.0f));
 		return topRight;
 	}
