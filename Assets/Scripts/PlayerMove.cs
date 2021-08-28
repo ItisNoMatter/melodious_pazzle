@@ -14,10 +14,9 @@ public class PlayerMove : MonoBehaviour
 
 
 	[SerializeField] private Transform target;
-	[SerializeField] public GameObject locusObject; //�ｽ�ｽ�ｽ@�ｽ�ｽ�ｽ逕ｭ�ｽ�ｽ�ｽ�ｽ�ｽﾄ、�ｽ�ｽ�ｽﾉ移難ｿｽ�ｽ�ｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽI�ｽu�ｽW�ｽF�ｽN�ｽg(�ｽv�ｽ�ｽ�ｽn�ｽu)
-	
+	[SerializeField] public GameObject locusObject; //経過した時間を受け取る変数
 
-//	[SerializeField] string FilePath;
+	//	[SerializeField] string FilePath;
 	string Title;
 	List<GameObject> Notes;
 	float ticks;
@@ -95,7 +94,7 @@ public class PlayerMove : MonoBehaviour
 
 	}
 
-	// �ｽ�ｽ闔橸ｿｽﾔ鯉ｿｽﾉ擾ｿｽ�ｽ�ｽ�ｽ�ｽ�ｽﾄび出�ｽ�ｽ�ｽR�ｽ�ｽ�ｽ[�ｽ`�ｽ�ｽ
+	// 一定時間後に処理を呼び出すコルーチン
 	private IEnumerator DelayCoroutine(float seconds, Action action)
 	{
 		while (true)
@@ -146,14 +145,14 @@ public class PlayerMove : MonoBehaviour
 
 	private Vector3 getScreenBottomLeft()
 	{
-		// �ｽ�ｽﾊの搾ｿｽ�ｽ�ｽ�ｽ�ｽ謫ｾ
+		// 画面の左下を取得
 		Vector3 bottomLeft = _fieldCamera.ScreenToWorldPoint(Vector3.zero);
 		return bottomLeft;
 	}
 
 	private Vector3 getScreenTopRight()
 	{
-		// �ｽ�ｽﾊの右�ｽ�ｽ�ｽ�ｽ�ｽ謫ｾ
+		// 画面の右上を取得
 		Vector3 topRight = _fieldCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0.0f));
 		return topRight;
 	}
