@@ -6,32 +6,35 @@ public class PlayerMove : MonoBehaviour
 {
 	public float speed;
 	public float bpm;
-	private float time; //Œo‰ß‚µ‚½ŠÔ‚ğó‚¯æ‚é•Ï”
+	private float time; //ï¿½oï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚ï¿½ï¿½ó‚¯ï¿½ï¿½Ïï¿½
+	private float cycle;
 	private Camera _fieldCamera;
 	[SerializeField] private Transform target;
-	[SerializeField] public GameObject locusObject; //©‹@‚©‚ç”­¶‚µ‚ÄA¶‚ÉˆÚ“®‚µ‚Ä‚¢‚­ƒIƒuƒWƒFƒNƒg(ƒvƒŒƒnƒu)
+	[SerializeField] public GameObject locusObject; //ï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½ç”­ï¿½ï¿½ï¿½ï¿½ï¿½ÄAï¿½ï¿½ï¿½ÉˆÚ“ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½g(ï¿½vï¿½ï¿½ï¿½nï¿½u)
+	
 
 	void Start()
     {
 		GameObject obj = GameObject.Find("Field Camera");
 		_fieldCamera = obj.GetComponent<Camera>();
+		cycle=60/bpm;
 
-		// ‰æ–Ê‚Ì’[“_‚ÌÀ•W
+		// ï¿½ï¿½Ê‚Ì’[ï¿½_ï¿½Ìï¿½ï¿½W
 		Debug.Log(getScreenTopRight().x);
 		Debug.Log(getScreenTopRight().y);
 		Debug.Log(getScreenBottomLeft().x);
 		Debug.Log(getScreenBottomLeft().y);
 
-		// ƒRƒ‹[ƒ`ƒ“‚Ì‹N“®
-		StartCoroutine(DelayCoroutine(bpm, () =>
+		// ï¿½Rï¿½ï¿½ï¿½[ï¿½`ï¿½ï¿½ï¿½Ì‹Nï¿½ï¿½
+		StartCoroutine(DelayCoroutine(cycle, () =>
 		{
-			// 0.5•bŒã‚É‚±‚±‚Ìˆ—‚ªÀs‚³‚ê‚é
+			// 0.5ï¿½bï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½
 			Instantiate(locusObject, this.transform.position, Quaternion.identity);
 		}));
 
 	}
 
-	// ˆê’èŠÔŒã‚Éˆ—‚ğŒÄ‚Ño‚·ƒRƒ‹[ƒ`ƒ“
+	// ï¿½ï¿½èï¿½ÔŒï¿½Éï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½[ï¿½`ï¿½ï¿½
 	private IEnumerator DelayCoroutine(float seconds, Action action)
 	{
 		while (true)
@@ -97,14 +100,14 @@ public class PlayerMove : MonoBehaviour
 
 	private Vector3 getScreenBottomLeft()
 	{
-		// ‰æ–Ê‚Ì¶ã‚ğæ“¾
+		// ï¿½ï¿½Ê‚Ìï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
 		Vector3 bottomLeft = _fieldCamera.ScreenToWorldPoint(Vector3.zero);
 		return bottomLeft;
 	}
 
 	private Vector3 getScreenTopRight()
 	{
-		// ‰æ–Ê‚Ì‰E‰º‚ğæ“¾
+		// ï¿½ï¿½Ê‚Ì‰Eï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
 		Vector3 topRight = _fieldCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0.0f));
 		return topRight;
 	}
