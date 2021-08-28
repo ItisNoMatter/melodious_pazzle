@@ -8,8 +8,11 @@ using UniRx;
 
 public class PlayerMove : MonoBehaviour
 {
+	public float bpm;
 	public float speed;
 	private Camera _fieldCamera;
+	private float cycle;
+
 
 	[SerializeField] private Transform target;
 	[SerializeField] public GameObject locusObject; //�ｽ�ｽ�ｽ@�ｽ�ｽ�ｽ逕ｭ�ｽ�ｽ�ｽ�ｽ�ｽﾄ、�ｽ�ｽ�ｽﾉ移難ｿｽ�ｽ�ｽ�ｽﾄゑｿｽ�ｽ�ｽ�ｽI�ｽu�ｽW�ｽF�ｽN�ｽg(�ｽv�ｽ�ｽ�ｽn�ｽu)
@@ -81,8 +84,10 @@ public class PlayerMove : MonoBehaviour
 		_fieldCamera = obj.GetComponent<Camera>();
 		cycle=60/bpm;
 
+		// コルーチンの起動
+		StartCoroutine(DelayCoroutine(cycle, () =>
 		{
-			// 0.5�ｽb�ｽ�ｽﾉゑｿｽ�ｽ�ｽ�ｽﾌ擾ｿｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽ�ｽs�ｽ�ｽ�ｽ�ｽ�ｽ
+			// 0.5秒後にここの処理が実行される
 			Instantiate(locusObject, this.transform.position, Quaternion.identity);
 		}));
 
