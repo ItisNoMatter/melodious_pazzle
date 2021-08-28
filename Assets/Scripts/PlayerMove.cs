@@ -22,23 +22,56 @@ public class PlayerMove : MonoBehaviour
 	float ticks;
 	List<float> ticksList = new List<float>();
 
+
+	[Serializable]
+	public class InputJson
+    {
+		public string header;
+		public Blocks[] tracks;
+    }
+
+
+	[Serializable]
+	public class Blocks
+    {
+		public int channel;
+		public string cintrolChanges;
+		public string pitch;
+		public string[] instrument;
+		public string name;
+		public elements[] notes;
+		public float end;
+    }
+
+
+	[Serializable]
+	public class elements
+    {
+		public float duration;
+		public float durationTicks;
+		public float midi;
+		public string name;
+		public float ticks;
+		public float time;
+		public float velocity;
+    }
+
 	// 譜面を読み込むための関数
 	float JsonReader()
 	{
-		string jsonText = Resources.Load<TextAsset>("Ramen").ToString();
+		string inputString = Resources.Load<TextAsset>("Ramen").ToString();
 
-		JsonNode json = JsonNode.Parse(jsonText);
+		InputJson inputjson = JsonUtility.FromJson<InputJson>(inputString);
 		//Title = json["title"].Get<string>();
 		//bpm = 60 / float.Parse(json["bpm"].Get<string>());
 
-		foreach (var note in json["tracks"]["notes"])
-		{
-			// string type = note["type"].Get<string>();
-			ticks = float.Parse(note["ticks"].Get<string>());
-			ticksList.Add(ticks);
-
+		foreach(var track in inputjson.tracks){
+			foreach(var note in track.notes)
+            {
+				ticksList.Add(note.ticks);
+			}
 		}
-
+		
 		return bpm;
 	}
 
@@ -49,14 +82,17 @@ public class PlayerMove : MonoBehaviour
 		_fieldCamera = obj.GetComponent<Camera>();
 
 		ticks = JsonReader();
+		Debug.Log(ticksList[0]);
+
+		
 
 		// 画面の端点の座標
-//		Debug.Log(getScreenTopRight().x);
-//		Debug.Log(getScreenTopRight().y);
-//		Debug.Log(getScreenBottomLeft().x);
-//		Debug.Log(getScreenBottomLeft().y);
+		//		Debug.Log(getScreenTopRight().x);
+		//		Debug.Log(getScreenTopRight().y);
+		//		Debug.Log(getScreenBottomLeft().x);
+		//		Debug.Log(getScreenBottomLeft().y);
 
-		Debug.Log(ticksList);
+
 
 		// コルーチンの起動
 		StartCoroutine(DelayCoroutine(ticks, () =>
