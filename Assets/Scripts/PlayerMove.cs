@@ -19,20 +19,24 @@ public class PlayerMove : MonoBehaviour
 //	[SerializeField] string FilePath;
 	string Title;
 	List<GameObject> Notes;
+	float ticks;
+	List<float> ticksList = new List<float>();
 
 	// 譜面を読み込むための関数
 	float JsonReader()
 	{
-		string jsonText = Resources.Load<TextAsset>("Sample").ToString();
+		string jsonText = Resources.Load<TextAsset>("Ramen").ToString();
 
 		JsonNode json = JsonNode.Parse(jsonText);
-		Title = json["title"].Get<string>();
-		bpm = 60 / float.Parse(json["bpm"].Get<string>());
+		//Title = json["title"].Get<string>();
+		//bpm = 60 / float.Parse(json["bpm"].Get<string>());
 
-		foreach (var note in json["notes"])
+		foreach (var note in json["tracks"]["notes"])
 		{
-			string type = note["type"].Get<string>();
-			float timing = float.Parse(note["timing"].Get<string>());
+			// string type = note["type"].Get<string>();
+			ticks = float.Parse(note["ticks"].Get<string>());
+			ticksList.Add(ticks);
+
 		}
 
 		return bpm;
@@ -44,16 +48,18 @@ public class PlayerMove : MonoBehaviour
 		GameObject obj = GameObject.Find("Field Camera");
 		_fieldCamera = obj.GetComponent<Camera>();
 
-		bpm = JsonReader();
+		ticks = JsonReader();
 
 		// 画面の端点の座標
-		Debug.Log(getScreenTopRight().x);
-		Debug.Log(getScreenTopRight().y);
-		Debug.Log(getScreenBottomLeft().x);
-		Debug.Log(getScreenBottomLeft().y);
+//		Debug.Log(getScreenTopRight().x);
+//		Debug.Log(getScreenTopRight().y);
+//		Debug.Log(getScreenBottomLeft().x);
+//		Debug.Log(getScreenBottomLeft().y);
+
+		Debug.Log(ticksList);
 
 		// コルーチンの起動
-		StartCoroutine(DelayCoroutine(bpm, () =>
+		StartCoroutine(DelayCoroutine(ticks, () =>
 		{
 			// 0.5秒後にここの処理が実行される
 			Instantiate(locusObject, this.transform.position, Quaternion.identity);
