@@ -1401,7 +1401,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2319b0b5f6a27c74cba6b2e2dc97498c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 80
   speed: 30
   target: {fileID: 1338576900}
   locusObject: {fileID: 6670544484718445761, guid: a3efffa6504f306468c7684dacafbe96,

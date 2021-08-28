@@ -8,10 +8,9 @@ using UniRx;
 
 public class PlayerMove : MonoBehaviour
 {
-	public float bpm;
 	public float speed;
 	private Camera _fieldCamera;
-	private float cycle;
+	private float delay;
 
 
 	[SerializeField] private Transform target;
@@ -59,7 +58,7 @@ public class PlayerMove : MonoBehaviour
     }
 
 	// 譜面を読み込むための関数
-	float JsonReader()
+	public void JsonReader()
 	{
 		string inputString = Resources.Load<TextAsset>("Ramen").ToString();
 
@@ -73,21 +72,24 @@ public class PlayerMove : MonoBehaviour
 				ticksList.Add(note.ticks);
 			}
 		}
-		
-		return bpm;
 	}
 
 
 	void Start()
     {
+
+		JsonReader();
+
 		GameObject obj = GameObject.Find("Field Camera");
 		_fieldCamera = obj.GetComponent<Camera>();
-		cycle=60/bpm;
+
+		//遅れる秒数を変化させたい
+		delay = (ticksList[1] - ticksList[0])/1000;
 
 		// コルーチンの起動
-		StartCoroutine(DelayCoroutine(cycle, () =>
+		StartCoroutine(DelayCoroutine(delay, () =>
 		{
-			// 0.5秒後にここの処理が実行される
+			// X秒後にここの処理が実行される
 			Instantiate(locusObject, this.transform.position, Quaternion.identity);
 		}));
 
@@ -100,6 +102,13 @@ public class PlayerMove : MonoBehaviour
 		{
 			yield return new WaitForSeconds(seconds);
 			action?.Invoke();
+			for (int n = 1; n < ticksList.Count - 1; n++) 
+			{ 
+				seconds = (ticksList[n + 1] - ticksList[n]) / 1000;
+				yield return new WaitForSeconds(seconds);
+				action?.Invoke();
+				Debug.Log(seconds);
+            }
 		}
 	}
 
@@ -109,29 +118,7 @@ public class PlayerMove : MonoBehaviour
 	{
 		Vector3 playerPosition = target.position;
 
-		if (Input.GetKey("right"))
-		{
-			if (playerPosition.x > getScreenTopRight().x)
-			{
-				transform.position -= transform.right * speed * Time.deltaTime;
-			}
-			else
-			{
-				transform.position += transform.right * speed * Time.deltaTime;
-			}
-
-		}
-		if (Input.GetKey("left"))
-		{
-			if (playerPosition.x < getScreenBottomLeft().x)
-			{
-				transform.position += transform.right * speed * Time.deltaTime;
-			}
-			else
-			{
-				transform.position -= transform.right * speed * Time.deltaTime;
-			}
-		}
+		
 		if (Input.GetKey("up"))
 		{
 			if (playerPosition.y > getScreenTopRight().y)
