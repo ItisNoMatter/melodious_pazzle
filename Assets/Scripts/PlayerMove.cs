@@ -15,6 +15,8 @@ public class PlayerMove : MonoBehaviour
 
 	[SerializeField] private Transform target;
 	[SerializeField] public GameObject locusObject; //経過した時間を受け取る変数
+	[SerializeField] public GameObject lineObject;
+
 
 	//	[SerializeField] string FilePath;
 	string Title;
@@ -83,7 +85,7 @@ public class PlayerMove : MonoBehaviour
 		_fieldCamera = obj.GetComponent<Camera>();
 
 		//遅れる秒数を変化させたい
-		delay = (ticksList[1] - ticksList[0])/1000;
+		delay = ticksList[0]/1000;
 
 		// コルーチンの起動
 		StartCoroutine(DelayCoroutine(delay, () =>
@@ -101,7 +103,7 @@ public class PlayerMove : MonoBehaviour
 		{
 			yield return new WaitForSeconds(seconds);
 			action?.Invoke();
-			for (int n = 1; n < ticksList.Count - 1; n++) 
+			for (int n = 0; n < ticksList.Count - 1; n++) 
 			{ 
 				seconds = (ticksList[n + 1] - ticksList[n]) / 1000;
 				yield return new WaitForSeconds(seconds);
@@ -117,7 +119,8 @@ public class PlayerMove : MonoBehaviour
 	{
 		Vector3 playerPosition = target.position;
 
-		
+		Instantiate(lineObject, this.transform.position, Quaternion.identity);
+
 		if (Input.GetKey("up"))
 		{
 			if (playerPosition.y > getScreenTopRight().y)
