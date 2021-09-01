@@ -7,6 +7,10 @@ public class StageSelect : MonoBehaviour
 {
     public void OnPressedStageButton(int stage)
     {
-        SceneManager.LoadScene(stage);
+        if (stage == 1)
+        {
+            SceneManager.LoadScene("Scenes/Scene01");
+        }
+
     }
 }
