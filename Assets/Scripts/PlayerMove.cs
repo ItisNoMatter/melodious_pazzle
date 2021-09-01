@@ -118,7 +118,7 @@ public class PlayerMove : MonoBehaviour
 		Vector3 playerPosition = target.position;
 
 		
-		if (Input.GetKey("up"))
+		if (Input.GetKey("up") | Input.GetKey("w"))
 		{
 			if (playerPosition.y > getScreenTopRight().y)
 			{
@@ -129,7 +129,7 @@ public class PlayerMove : MonoBehaviour
 				transform.position += transform.up * speed * Time.deltaTime;
 			}
 		}
-		if (Input.GetKey("down"))
+		if (Input.GetKey("down") | Input.GetKey("s"))
 		{
 			if (playerPosition.y < getScreenBottomLeft().y)
 			{
