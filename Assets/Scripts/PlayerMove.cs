@@ -4,7 +4,6 @@ using System;
 
 using System.Collections.Generic;
 
-using UniRx;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -118,10 +117,8 @@ public class PlayerMove : MonoBehaviour
 	void Update()
 	{
 		Vector3 playerPosition = target.position;
-
-		Instantiate(lineObject, this.transform.position, Quaternion.identity);
-
-		if (Input.GetKey("up"))
+		
+		if (Input.GetKey("up") | Input.GetKey("w"))
 		{
 			if (playerPosition.y > getScreenTopRight().y)
 			{
@@ -132,7 +129,7 @@ public class PlayerMove : MonoBehaviour
 				transform.position += transform.up * speed * Time.deltaTime;
 			}
 		}
-		if (Input.GetKey("down"))
+		if (Input.GetKey("down") | Input.GetKey("s"))
 		{
 			if (playerPosition.y < getScreenBottomLeft().y)
 			{

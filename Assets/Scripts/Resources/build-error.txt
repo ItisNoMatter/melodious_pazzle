@@ -1,0 +1,113 @@
+CommandWithNoStdoutInvokationFailure: Gradle initialization failed.
+UnityEditor.Android.Command.RunWithShellExecute (System.String command, System.String args, System.String workingdir, System.String errorMsg) (at <75f013ddda954fbc95d969bddb4142fb>:0)
+UnityEditor.Android.AndroidJavaTools.RunJavaWithShellExecute (System.String args, System.String workingdir, System.String error) (at <75f013ddda954fbc95d969bddb4142fb>:0)
+UnityEditor.Android.GradleWrapper.WarmupGradle (UnityEditor.Android.AndroidJavaTools javaTools, System.String workingDir, System.String baseCommand) (at <75f013ddda954fbc95d969bddb4142fb>:0)
+Rethrow as GradleInvokationException: Gradle initialization failed.
+UnityEditor.Android.GradleWrapper.WarmupGradle (UnityEditor.Android.AndroidJavaTools javaTools, System.String workingDir, System.String baseCommand) (at <75f013ddda954fbc95d969bddb4142fb>:0)
+UnityEditor.Android.PostProcessAndroidPlayer+<>c__DisplayClass3_0.<ExecuteWarmup>b__0 () (at <75f013ddda954fbc95d969bddb4142fb>:0)
+System.Threading.ThreadHelper.ThreadStart_Context (System.Object state) (at <695d1cc93cca45069c528c15c9fdd749>:0)
+System.Threading.ExecutionContext.RunInternal (System.Threading.ExecutionContext executionContext, System.Threading.ContextCallback callback, System.Object state, System.Boolean preserveSyncCtx) (at <695d1cc93cca45069c528c15c9fdd749>:0)
+System.Threading.ExecutionContext.Run (System.Threading.ExecutionContext executionContext, System.Threading.ContextCallback callback, System.Object state, System.Boolean preserveSyncCtx) (at <695d1cc93cca45069c528c15c9fdd749>:0)
+System.Threading.ExecutionContext.Run (System.Threading.ExecutionContext executionContext, System.Threading.ContextCallback callback, System.Object state) (at <695d1cc93cca45069c528c15c9fdd749>:0)
+System.Threading.ThreadHelper.ThreadStart () (at <695d1cc93cca45069c528c15c9fdd749>:0)
+UnityEngine.<>c:<RegisterUECatcher>b__0_0(Object, UnhandledExceptionEventArgs)
+
+Starting a Gradle Daemon (subsequent builds will be faster)
+
+UnityEngine.GUIUtility:ProcessEvent (int,intptr,bool&)
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Unable to start the daemon process.
+This problem might be caused by incorrect configuration of the daemon.
+For example, an unrecognized jvm option is used.
+Please refer to the User Manual chapter on the daemon at https://docs.gradle.org/5.6.4/userguide/gradle_daemon.html
+Process command line: D:\Users\user\Documents\Unity\2020.3.13f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\bin\java.exe -Xmx4096m -Dfile.encoding=UTF-8 -Duser.country=JP -Duser.language=ja -Duser.variant -cp D:\Users\user\Documents\Unity\2020.3.13f1\Editor\Data\PlaybackEngines\AndroidPlayer\Tools\gradle\lib\gradle-launcher-5.6.4.jar org.gradle.launcher.daemon.bootstrap.GradleDaemon 5.6.4
+Please read the following process output to find out more:
+-----------------------
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Could not create service of type ClassLoaderRegistry using GlobalScopeServices.createClassLoaderRegistry().
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+
+UnityEngine.GUIUtility:ProcessEvent (int,intptr,bool&)
+
+CommandInvokationFailure: Gradle build failed. 
+D:\Users\user\Documents\Unity\2020.3.13f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\bin\java.exe -classpath "D:\Users\user\Documents\Unity\2020.3.13f1\Editor\Data\PlaybackEngines\AndroidPlayer\Tools\gradle\lib\gradle-launcher-5.6.4.jar" org.gradle.launcher.GradleMain "-Dorg.gradle.jvmargs=-Xmx4096m" "assembleDebug"
+
+stderr[
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Unable to start the daemon process.
+This problem might be caused by incorrect configuration of the daemon.
+For example, an unrecognized jvm option is used.
+Please refer to the User Manual chapter on the daemon at https://docs.gradle.org/5.6.4/userguide/gradle_daemon.html
+Process command line: D:\Users\user\Documents\Unity\2020.3.13f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\bin\java.exe -Xmx4096m -Dfile.encoding=UTF-8 -Duser.country=JP -Duser.language=ja -Duser.variant -cp D:\Users\user\Documents\Unity\2020.3.13f1\Editor\Data\PlaybackEngines\AndroidPlayer\Tools\gradle\lib\gradle-launcher-5.6.4.jar org.gradle.launcher.daemon.bootstrap.GradleDaemon 5.6.4
+Please read the following process output to find out more:
+-----------------------
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Could not create service of type ClassLoaderRegistry using GlobalScopeServices.createClassLoaderRegistry().
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+]
+stdout[
+Starting a Gradle Daemon (subsequent builds will be faster)
+]
+exit code: 1
+UnityEditor.Android.Command.WaitForProgramToRun (UnityEditor.Utils.Program p, UnityEditor.Android.Command+WaitingForProcessToExit waitingForProcessToExit, System.String errorMsg) (at <75f013ddda954fbc95d969bddb4142fb>:0)
+UnityEditor.Android.Command.Run (System.Diagnostics.ProcessStartInfo psi, UnityEditor.Android.Command+WaitingForProcessToExit waitingForProcessToExit, System.String errorMsg) (at <75f013ddda954fbc95d969bddb4142fb>:0)
+UnityEditor.Android.Command.Run (System.String command, System.String args, System.String workingdir, UnityEditor.Android.Command+WaitingForProcessToExit waitingForProcessToExit, System.String errorMsg) (at <75f013ddda954fbc95d969bddb4142fb>:0)
+UnityEditor.Android.AndroidJavaTools.RunJava (System.String args, System.String workingdir, System.Action`1[T] progress, System.String error) (at <75f013ddda954fbc95d969bddb4142fb>:0)
+UnityEditor.Android.GradleWrapper.Run (UnityEditor.Android.AndroidJavaTools javaTools, System.String workingdir, System.String task, System.Action`1[T] progress) (at <75f013ddda954fbc95d969bddb4142fb>:0)
+Rethrow as GradleInvokationException: Gradle build failed
+UnityEditor.Android.GradleWrapper.Run (UnityEditor.Android.AndroidJavaTools javaTools, System.String workingdir, System.String task, System.Action`1[T] progress) (at <75f013ddda954fbc95d969bddb4142fb>:0)
+UnityEditor.Android.PostProcessor.Tasks.BuildGradleProject.Execute (UnityEditor.Android.PostProcessor.PostProcessorContext context) (at <75f013ddda954fbc95d969bddb4142fb>:0)
+UnityEditor.Android.PostProcessor.PostProcessRunner.RunAllTasks (UnityEditor.Android.PostProcessor.PostProcessorContext context) (at <75f013ddda954fbc95d969bddb4142fb>:0)
+Rethrow as BuildFailedException: Exception of type 'UnityEditor.Build.BuildFailedException' was thrown.
+UnityEditor.Android.PostProcessor.CancelPostProcess.AbortBuild (System.String title, System.String message, System.Exception ex) (at <75f013ddda954fbc95d969bddb4142fb>:0)
+UnityEditor.Android.PostProcessor.PostProcessRunner.RunAllTasks (UnityEditor.Android.PostProcessor.PostProcessorContext context) (at <75f013ddda954fbc95d969bddb4142fb>:0)
+UnityEditor.Android.PostProcessAndroidPlayer.PostProcess (UnityEditor.BuildTarget target, System.String stagingAreaData, System.String stagingArea, System.String playerPackage, System.String installPath, System.String companyName, System.String productName, UnityEditor.BuildOptions options, UnityEditor.RuntimeClassRegistry usedClassRegistry, UnityEditor.Build.Reporting.BuildReport report) (at <75f013ddda954fbc95d969bddb4142fb>:0)
+UnityEditor.Android.AndroidBuildPostprocessor.PostProcess (UnityEditor.Modules.BuildPostProcessArgs args, UnityEditor.BuildProperties& outProperties) (at <75f013ddda954fbc95d969bddb4142fb>:0)
+UnityEditor.PostprocessBuildPlayer.Postprocess (UnityEditor.BuildTargetGroup targetGroup, UnityEditor.BuildTarget target, System.String installPath, System.String companyName, System.String productName, System.Int32 width, System.Int32 height, UnityEditor.BuildOptions options, UnityEditor.RuntimeClassRegistry usedClassRegistry, UnityEditor.Build.Reporting.BuildReport report) (at <01e901910c5242498b7e69f6d2d8d500>:0)
+UnityEngine.GUIUtility:ProcessEvent(Int32, IntPtr, Boolean&)
+
+Build completed with a result of 'Failed' in 50 seconds (49922 ms)
+UnityEngine.GUIUtility:ProcessEvent (int,intptr,bool&)
+
+UnityEditor.BuildPlayerWindow+BuildMethodException: 5 errors
+  at UnityEditor.BuildPlayerWindow+DefaultBuildMethods.BuildPlayer (UnityEditor.BuildPlayerOptions options) [0x002ca] in <01e901910c5242498b7e69f6d2d8d500>:0 
+  at UnityEditor.BuildPlayerWindow.CallBuildMethods (System.Boolean askForBuildLocation, UnityEditor.BuildOptions defaultBuildOptions) [0x00080] in <01e901910c5242498b7e69f6d2d8d500>:0 
+UnityEngine.GUIUtility:ProcessEvent (int,intptr,bool&)
+
