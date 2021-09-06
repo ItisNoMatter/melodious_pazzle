@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Field Camera
   - notes
+  - Obstacle
   layers:
   - Default
   - TransparentFX
