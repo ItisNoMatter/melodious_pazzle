@@ -9,7 +9,7 @@ public class StageSelect : MonoBehaviour
     {
         if (stage == 1)
         {
-            SceneManager.LoadScene("Scenes/Scene01");
+            SceneManager.LoadScene("Scenes/MainScene");
         }
 
     }
