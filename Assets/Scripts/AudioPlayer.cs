@@ -23,13 +23,13 @@ public class AudioPlayer : MonoBehaviour
     {
         if (other.gameObject.tag == "notes")
         {
-            other.gameObject.GetComponent<Renderer>().material.color = Color.red;
-            audiosource.PlayOneShot(audioclip);
-
-            yield return new WaitForSeconds(1.0f);
-
             Destroy(other.gameObject);
-            
+
+            this.gameObject.GetComponent<Renderer>().material.color = Color.red;                       
+            audiosource.PlayOneShot(audioclip);
+            yield return new WaitForSeconds(1.0f);
+            this.gameObject.GetComponent<Renderer>().material.color = Color.white;
+
         }
 
     }

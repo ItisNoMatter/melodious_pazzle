@@ -17,7 +17,7 @@ public class PlayerHealthManager : MonoBehaviour
         slider.gameObject.SetActive(true);
     }
 
-    private void OnCollisionEnter2D(Collision2D collider)
+    /*private void OnCollisionEnter2D(Collision2D collider)
     {
         if (collider.gameObject.tag == "Obstacle")
         {
@@ -31,11 +31,27 @@ public class PlayerHealthManager : MonoBehaviour
             currentPlayerHp(currentHp);
         }
         currentPlayerHp(currentHp);
+    }*/
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "Obstacle")
+        {
+            int damage = Random.Range(1, 20);
+
+            currentHp = currentHp - damage;
+
+            slider.value = (float)currentHp / (float)maxHp;
+
+            //Debug.Log(currentHp);
+            currentPlayerHp(currentHp);
+        }
+        currentPlayerHp(currentHp);
     }
 
     private void currentPlayerHp(int currentHp)
     {
-        Debug.Log(currentHp);
+        //Debug.Log(currentHp);
         if (currentHp <= 0)
         {
             Debug.Log("Game Over");
