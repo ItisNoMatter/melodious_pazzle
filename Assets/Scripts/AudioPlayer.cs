@@ -25,7 +25,9 @@ public class AudioPlayer : MonoBehaviour
         {
             other.gameObject.GetComponent<Renderer>().material.color = Color.red;
             audiosource.PlayOneShot(audioclip);
+
             yield return new WaitForSeconds(1.0f);
+
             Destroy(other.gameObject);
         }
 

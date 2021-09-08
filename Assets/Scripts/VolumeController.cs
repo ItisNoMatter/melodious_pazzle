@@ -22,5 +22,7 @@ public class VolumeController : MonoBehaviour
     public void volumeChange()
     {
         mixer.SetFloat("BGM", slider.value);
+        mixer.SetFloat("SE", slider.value);
     }
+
 }

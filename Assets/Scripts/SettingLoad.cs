@@ -9,10 +9,15 @@ public class SettingLoad : MonoBehaviour
     [SerializeField] Image configMenu;
     [SerializeField] Image loadMenu;
 
+    // 決定音
+    private AudioSource se;
+
     private void Start()
     {
         mainMenu.gameObject.SetActive(true);
         configMenu.gameObject.SetActive(false);
+        se = GetComponent<AudioSource>();
+        // se.PlayOneShot(se.clip);
     }
     public void OpenMainMenu()
     {
