@@ -46,6 +46,17 @@ public class PlayerHealthManager : MonoBehaviour
             //Debug.Log(currentHp);
             currentPlayerHp(currentHp);
         }
+        if (collider.gameObject.tag == "powerUpLv1")
+        {
+            int care = Random.Range(1, 10);
+
+            currentHp = currentHp + care;
+
+            slider.value = (float)currentHp / (float)maxHp;
+
+            //Debug.Log(currentHp);
+            currentPlayerHp(currentHp);
+        }
         currentPlayerHp(currentHp);
     }
 
