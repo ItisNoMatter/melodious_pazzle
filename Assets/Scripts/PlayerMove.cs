@@ -107,7 +107,7 @@ public class PlayerMove : MonoBehaviour
 				seconds = (ticksList[n + 1] - ticksList[n]) / 1000;
 				yield return new WaitForSeconds(seconds);
 				action?.Invoke();
-				Debug.Log(seconds);
+				//Debug.Log(seconds);
             }
 		}
 	}
