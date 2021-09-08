@@ -29,6 +29,7 @@ public class AudioPlayer : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
 
             Destroy(other.gameObject);
+            
         }
 
     }

@@ -54,7 +54,7 @@ public class JsonSerialiZation : MonoBehaviour
     }
 
     // JSON形式をロードしてデシリアライズ
-    private void OnLoad()
+    public void OnLoad()
     {
         // 念のためファイルの存在チェック
         if (!File.Exists(_dataPath)) return;
