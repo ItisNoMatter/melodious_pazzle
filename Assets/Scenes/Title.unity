@@ -2034,7 +2034,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1082319535}
-        m_MethodName: Start
+        m_MethodName: LoadPressedButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2428,7 +2428,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1148614542}
-        m_MethodName: Start
+        m_MethodName: LoadPressedButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3245,7 +3245,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1517305033}
-        m_MethodName: Start
+        m_MethodName: LoadPressedButton
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

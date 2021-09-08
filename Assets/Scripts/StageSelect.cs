@@ -30,6 +30,12 @@ public class StageSelect : MonoBehaviour
             // ヒープ音など鳴らせるとよい？
         }
 
+        else if (stage == 3)
+        {
+            // 未実装
+            // ヒープ音など鳴らせるとよい？
+        }
+
         // 1秒待つ
         yield return new WaitForSeconds(1.0f);
     }
