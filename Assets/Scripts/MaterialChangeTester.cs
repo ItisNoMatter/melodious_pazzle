@@ -10,7 +10,17 @@ public class MaterialChangeTester : MonoBehaviour
     void Start()
     {
         _renderer = GetComponent<Renderer>();
-        StartCoroutine(BlinkerCoroutine());
+        Test();
+    }
+
+    public void Test()
+    {
+        var originalMaterial = new Material(_renderer.material);
+        _renderer.material.EnableKeyword("_EMISSION"); //キーワードの有効化を忘れずに
+        _renderer.material.SetColor("_EmissionColor", new Color(1, 0, 0)); //赤色に光らせる
+        new WaitForSeconds(1.0f); //1秒待って
+        _renderer.material = originalMaterial; //元に戻す
+        //StartCoroutine(BlinkerCoroutine());
     }
 
     IEnumerator BlinkerCoroutine()
@@ -24,7 +34,7 @@ public class MaterialChangeTester : MonoBehaviour
             _renderer.material.SetColor("_EmissionColor", new Color(1, 0, 0)); //赤色に光らせる
             yield return new WaitForSeconds(1.0f); //1秒待って
             _renderer.material = originalMaterial; //元に戻す
-            yield return new WaitForSeconds(1.0f); //また1秒待ってくりかえし
+            //yield return new WaitForSeconds(1.0f); //また1秒待ってくりかえし
         }
     }
 }
