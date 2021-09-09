@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class ScoreView : MonoBehaviour
 {
     public Text ScoreText;
-    public Text NextText;
+    public Text ExitText;
+    public Text RetryText;
+
     int score;
 
     // Start is called before the first frame update
@@ -18,18 +20,32 @@ public class ScoreView : MonoBehaviour
         ScoreText.text = string.Format("Score:{0}", score);
     }
 
-    public void LoadPressedNextButton()
+    public void LoadPressedExitButton()
     {
 
-        StartCoroutine(OnPressedNextButton());
+        StartCoroutine(OnPressedExitButton());
 
     }
 
-    public IEnumerator OnPressedNextButton()
+    public IEnumerator OnPressedExitButton()
     {
 
-        Text nextText = NextText.GetComponent<Text>();
-        nextText.color = Color.yellow;
+        Text exitText = ExitText.GetComponent<Text>();
+        exitText.color = Color.yellow;
+
+        // 決定音
+        GetComponent<AudioSource>().Play();
+        SceneManager.LoadScene("Scenes/Title");
+
+        yield return new WaitForSeconds(1.0f);
+
+    }
+
+    public IEnumerator OnPressedRetryButton()
+    {
+
+        Text retryText = RetryText.GetComponent<Text>();
+        retryText.color = Color.yellow;
 
         // 決定音
         GetComponent<AudioSource>().Play();
@@ -39,4 +55,4 @@ public class ScoreView : MonoBehaviour
 
     }
 
-    }
+}

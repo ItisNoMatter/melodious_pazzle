@@ -651,7 +651,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 51daf6df35e029a42a494c425fa39ba1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7e7f89741b53e3e4aa9a13ea536e14fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -708,7 +708,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.8, y: 1.61}
+    oldSize: {x: 2, y: 1.56}
     newSize: {x: 1.8, y: 1.61}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2324,7 +2324,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b849ee8064c118042bf8cafb12ccdf5e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8438fd1f3e7771d4f905079643e3c5c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4782,6 +4782,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1127633225765515368, guid: fddd96b5f5dc32d4dad6c62ed67de727,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127633225765515368, guid: fddd96b5f5dc32d4dad6c62ed67de727,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127633225765515370, guid: fddd96b5f5dc32d4dad6c62ed67de727,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1127633225765515371, guid: fddd96b5f5dc32d4dad6c62ed67de727,
         type: 3}
       propertyPath: m_Pivot.x
@@ -4826,6 +4841,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127633225765515371, guid: fddd96b5f5dc32d4dad6c62ed67de727,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127633225765515371, guid: fddd96b5f5dc32d4dad6c62ed67de727,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.19378883
       objectReference: {fileID: 0}
     - target: {fileID: 1127633225765515371, guid: fddd96b5f5dc32d4dad6c62ed67de727,
         type: 3}
@@ -4891,6 +4916,27 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ScoreUpItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127633225765515380, guid: fddd96b5f5dc32d4dad6c62ed67de727,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127633225765515383, guid: fddd96b5f5dc32d4dad6c62ed67de727,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7e7f89741b53e3e4aa9a13ea536e14fc,
+        type: 3}
+    - target: {fileID: 1127633225765515383, guid: fddd96b5f5dc32d4dad6c62ed67de727,
+        type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127633225765515383, guid: fddd96b5f5dc32d4dad6c62ed67de727,
+        type: 3}
+      propertyPath: m_MaskInteraction
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fddd96b5f5dc32d4dad6c62ed67de727, type: 3}
