@@ -6,14 +6,14 @@ using UnityEngine.UI;
 
 public class PlayerHealthManager : MonoBehaviour
 {
-    int maxHp = 300;
+    int maxHp = 100; // HP最大値は100固定
     int currentHp;
     public Slider slider;
 
     void Start()
     {
         slider.value = 1;
-        currentHp = maxHp;
+        currentHp = 30; // 初期HPは30固定
         slider.gameObject.SetActive(true);
     }
 
@@ -48,7 +48,29 @@ public class PlayerHealthManager : MonoBehaviour
         }
         if (collider.gameObject.tag == "powerUpLv1")
         {
-            int care = Random.Range(1, 10);
+            int care = 5; // パワー回復アイテムは5,20,30の3つを想定
+
+            currentHp = currentHp + care;
+
+            slider.value = (float)currentHp / (float)maxHp;
+
+            //Debug.Log(currentHp);
+            currentPlayerHp(currentHp);
+        }
+        if (collider.gameObject.tag == "powerUpLv2")
+        {
+            int care = 10; // パワー回復アイテムは5,20,30の3つを想定
+
+            currentHp = currentHp + care;
+
+            slider.value = (float)currentHp / (float)maxHp;
+
+            //Debug.Log(currentHp);
+            currentPlayerHp(currentHp);
+        }
+        if (collider.gameObject.tag == "powerUpLv3")
+        {
+            int care = 30; // パワー回復アイテムは5,20,30の3つを想定
 
             currentHp = currentHp + care;
 

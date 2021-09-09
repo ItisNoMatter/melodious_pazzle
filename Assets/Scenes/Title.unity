@@ -347,8 +347,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -89, y: -69.712}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchoredPosition: {x: -7.43, y: -69.712}
+  m_SizeDelta: {x: 323.14496, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &52813150
 MonoBehaviour:
@@ -942,8 +942,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 70, y: 0}
-  m_SizeDelta: {x: 140, y: 20}
+  m_AnchoredPosition: {x: 161.57, y: 0}
+  m_SizeDelta: {x: 323.14496, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &387192611
 GameObject:
@@ -3175,8 +3175,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -89, y: 10.000006}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchoredPosition: {x: -5.75, y: 10.000006}
+  m_SizeDelta: {x: 326.5, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1333087203
 MonoBehaviour:
@@ -3605,8 +3605,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 70, y: 0}
-  m_SizeDelta: {x: 140, y: 20}
+  m_AnchoredPosition: {x: 163.25, y: 0}
+  m_SizeDelta: {x: 326.5, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1454625880
 GameObject:
@@ -3619,6 +3619,7 @@ GameObject:
   - component: {fileID: 1454625881}
   - component: {fileID: 1454625883}
   - component: {fileID: 1454625882}
+  - component: {fileID: 1454625884}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -3658,13 +3659,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3682,6 +3683,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454625880}
   m_CullTransparentMesh: 0
+--- !u!114 &1454625884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454625880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 0.49198288, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1517305031
 GameObject:
   m_ObjectHideFlags: 0
@@ -4235,6 +4251,7 @@ GameObject:
   - component: {fileID: 1629223103}
   - component: {fileID: 1629223105}
   - component: {fileID: 1629223104}
+  - component: {fileID: 1629223106}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -4274,13 +4291,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4298,6 +4315,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629223102}
   m_CullTransparentMesh: 0
+--- !u!114 &1629223106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629223102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 0.49198288, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1629815662
 GameObject:
   m_ObjectHideFlags: 0
