@@ -27,6 +27,13 @@ public class ScoreView : MonoBehaviour
 
     }
 
+    public void LoadPressedRetryButton()
+    {
+
+        StartCoroutine(OnPressedRetryButton());
+
+    }
+
     public IEnumerator OnPressedExitButton()
     {
 

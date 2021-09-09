@@ -381,8 +381,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: LoadPressedNextButton
+      - m_Target: {fileID: 1871424719}
+        m_MethodName: LoadPressedExitButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -616,8 +616,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: LoadPressedNextButton
+      - m_Target: {fileID: 1871424719}
+        m_MethodName: LoadPressedRetryButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1081,8 +1081,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreText: {fileID: 1814721800}
-  ExitText: {fileID: 0}
-  RetryText: {fileID: 0}
+  ExitText: {fileID: 1701661319}
+  RetryText: {fileID: 96917812}
 --- !u!114 &1871424720
 MonoBehaviour:
   m_ObjectHideFlags: 0
