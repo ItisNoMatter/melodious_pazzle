@@ -2390,6 +2390,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1758898811}
+  playerObject: {fileID: 1338576896}
+  mainCamera: {fileID: 519420028}
 --- !u!1 &1348733324
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,12 @@ public class PlayerHealthManager : MonoBehaviour
     int currentHp;
     public Slider slider;
 
+    [SerializeField]
+    GameObject playerObject;
+
+    [SerializeField]
+    GameObject mainCamera;
+
     void Start()
     {
         slider.value = 1;
@@ -85,12 +91,37 @@ public class PlayerHealthManager : MonoBehaviour
     private void currentPlayerHp(int currentHp)
     {
         //Debug.Log(currentHp);
+
         if (currentHp <= 0)
         {
             Debug.Log("Game Over");
             slider.gameObject.SetActive(false);
-            currentHp = maxHp;
-            SceneManager.LoadScene("Scenes/GameOver");
+
+            Invoke("ShakeCamera", 1.0f);
+            Invoke("PlayerDirection", 1.5f);
+            Invoke("PlayerMove", 2.0f);
+            Invoke("SceneMove", 3.0f);
         }
     }
+
+    private void ShakeCamera()
+    {
+        iTween.ShakePosition(mainCamera, iTween.Hash("x", 0.3f, "y", 0.3f, "time", 1.0f));
+    }
+
+    private void PlayerDirection()
+    {
+        iTween.RotateBy(playerObject, iTween.Hash("x", 180f));
+    }
+
+    private void PlayerMove()
+    {
+        iTween.MoveAdd(playerObject, iTween.Hash("y", -100f));
+    }
+
+    private void SceneMove()
+    {
+        SceneManager.LoadScene("Scenes/GameOver");
+    }
+
 }
