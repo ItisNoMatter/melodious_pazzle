@@ -68,7 +68,7 @@ public class PlayerHealthManager : MonoBehaviour
             Debug.Log("Game Over");
             slider.gameObject.SetActive(false);
             currentHp = maxHp;
-            SceneManager.LoadScene("Scenes/Title");
+            SceneManager.LoadScene("Scenes/GameOver");
         }
     }
 }
