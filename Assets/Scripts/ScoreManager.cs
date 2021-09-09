@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
-    int score;
+    public static int score;
     int point;
 
     // Start is called before the first frame update
@@ -14,7 +14,7 @@ public class ScoreManager : MonoBehaviour
         score = 0;
     }
 
-    private int OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
         
         if (collider.gameObject.tag == "Player")
@@ -25,10 +25,12 @@ public class ScoreManager : MonoBehaviour
 
             score += point;
 
-            return score;
-
         }
-        return score;
 
+    }
+
+    public static int getscore()
+    {
+        return score;
     }
 }
