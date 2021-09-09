@@ -6,18 +6,38 @@ using UnityEngine.UI;
 
 public class ScoreView : MonoBehaviour
 {
+    public Text RankText;
     public Text ScoreText;
     public Text ExitText;
     public Text RetryText;
 
     int score;
+    int rank;
 
     // Start is called before the first frame update
     void Start()
     {
         score = ScoreManager.getscore();
 
+        if (rank >= 90)
+        {
+            RankText.text = string.Format("Rank:S");
+        }
+        else if (rank >= 80)
+        {
+            RankText.text = string.Format("Rank:A");
+        }
+        else if (rank >= 70)
+        {
+            RankText.text = string.Format("Rank:B");
+        }
+        else
+        {
+            RankText.text = string.Format("Rank:C");
+        }
+
         ScoreText.text = string.Format("Score:{0}", score);
+
     }
 
     public void LoadPressedExitButton()
