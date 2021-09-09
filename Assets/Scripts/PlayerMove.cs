@@ -60,7 +60,7 @@ public class PlayerMove : MonoBehaviour
 	// 譜面を読み込むための関数
 	public void JsonReader()
 	{
-		string inputString = Resources.Load<TextAsset>("Ramen").ToString();
+		string inputString = Resources.Load<TextAsset>("Ramen_ver2").ToString();
 
 		InputJson inputjson = JsonUtility.FromJson<InputJson>(inputString);
 		//Title = json["title"].Get<string>();
@@ -79,12 +79,12 @@ public class PlayerMove : MonoBehaviour
     {
 
 		JsonReader();
-
+		
 		GameObject obj = GameObject.Find("Field Camera");
 		_fieldCamera = obj.GetComponent<Camera>();
 
 		//遅れる秒数を変化させたい
-		delay = ticksList[0]/1000;
+		delay = (ticksList[0]/1000)+1;
 
 		// コルーチンの起動
 		StartCoroutine(DelayCoroutine(delay, () =>
@@ -107,7 +107,7 @@ public class PlayerMove : MonoBehaviour
 				seconds = (ticksList[n + 1] - ticksList[n]) / 1000;
 				yield return new WaitForSeconds(seconds);
 				action?.Invoke();
-				Debug.Log(seconds);
+				
             }
 		}
 	}

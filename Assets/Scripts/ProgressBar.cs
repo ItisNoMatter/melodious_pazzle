@@ -23,7 +23,7 @@ public class ProgressBar : MonoBehaviour
     {
         currentTime += Time.deltaTime;
         slider.value = (float)currentTime / (float)maxTime;
-        Debug.Log(currentTime);
+        
     }
 
 }
