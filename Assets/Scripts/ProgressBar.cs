@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class ProgressBar : MonoBehaviour
 {
-    private float currentTime;
+    ScoreManager scoreManager;
+    public float currentTime;
     
     // 1ステージの時間を1m30sで固定
     private float maxTime = 90f;
-
-    public float timeParameter;
 
     public Slider slider;
     void Start()
@@ -26,12 +26,13 @@ public class ProgressBar : MonoBehaviour
         currentTime += Time.deltaTime;
         slider.value = (float)currentTime / (float)maxTime;
         // Debug.Log(currentTime);
-        progressParameter(currentTime);
-    }
 
-    public void progressParameter(float currentTime)
-    {
-        timeParameter = currentTime;
+        // 進行率100%のときリザルト画面に遷移
+        // このとき、ScoreManagerのscoreパラメータをResultに渡したい
+        // https://qiita.com/tkyaji/items/361bd3d3d296516658f5
+        if (slider.value == 1) {
+            SceneManager.LoadScene("Scenes/Result");
+        }
     }
 
 }

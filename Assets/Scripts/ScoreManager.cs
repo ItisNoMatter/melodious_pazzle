@@ -5,19 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
-    ProgressBar progress;
-    float timeParameter;
-    int score = 0;
+    int score;
     int point;
+
     // Start is called before the first frame update
     void Start()
     {
-        timeParameter = progress.timeParameter;
+        score = 0;
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private int OnTriggerEnter2D(Collider2D collider)
     {
-
+        
         if (collider.gameObject.tag == "Player")
         {
             GetComponent<AudioSource>().Play();
@@ -26,11 +25,10 @@ public class ScoreManager : MonoBehaviour
 
             score += point;
 
-        }
+            return score;
 
-        if (timeParameter == 90f)
-        {
-            SceneManager.LoadScene("Scenes/Result");
         }
+        return score;
+
     }
 }
