@@ -50,6 +50,8 @@ public class SettingLoad : MonoBehaviour
         // SE03(設定画面から出るときの音)を鳴らす
         se.PlayOneShot(se.clip);
 
+        // ページ遷移が切り替わるタイミング
+        // SEの再生時間を考慮し、現状0.5sとしている
         await Task.Delay(500);
 
         mainMenu.gameObject.SetActive(true);
