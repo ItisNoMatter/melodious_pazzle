@@ -965,8 +965,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05129b978096c874a87b28b311aa6bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAspect: {x: 5, y: 4}
-  minAspect: {x: 5, y: 4}
+  maxAspect: {x: 1024, y: 768}
+  minAspect: {x: 1024, y: 768}
 --- !u!1 &1200267166
 GameObject:
   m_ObjectHideFlags: 0
