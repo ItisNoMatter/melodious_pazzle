@@ -50,7 +50,7 @@ public class SettingLoad : MonoBehaviour
         // SE03(設定画面から出るときの音)を鳴らす
         se.PlayOneShot(se.clip);
 
-        await Task.Delay(1000);
+        await Task.Delay(500);
 
         mainMenu.gameObject.SetActive(true);
         configMenu.gameObject.SetActive(false);
@@ -65,7 +65,7 @@ public class SettingLoad : MonoBehaviour
         // SE05(設定画面に入る時の音)を鳴らす
         se.PlayOneShot(se.clip);
 
-        await Task.Delay(1000);
+        await Task.Delay(500);
 
         mainMenu.gameObject.SetActive(false);
         configMenu.gameObject.SetActive(true);
@@ -80,7 +80,7 @@ public class SettingLoad : MonoBehaviour
         // セーブデータをロード
         jsonSeriali.OnLoad();
 
-        await Task.Delay(1000);
+        await Task.Delay(500);
 
         // ゲームスタートの処理
 

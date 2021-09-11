@@ -23,7 +23,7 @@ public class BackTitle : MonoBehaviour
         // SE03(設定画面から出るときの音)を鳴らす
         GetComponent<AudioSource>().Play();
 
-        await Task.Delay(1000);
+        await Task.Delay(500);
 
         SceneManager.LoadScene("Scenes/Title");
 
