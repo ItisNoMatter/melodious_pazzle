@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class ObjectSpawn : MonoBehaviour
 {
-    public GameObject syougaibutu;
+    public GameObject obstacle;
 
-    public GameObject item;
+    public GameObject power_item1,power_item2,power_item3;
+
+    public GameObject coin;
 
 
     // Start is called before the first frame update
@@ -21,13 +23,18 @@ public class ObjectSpawn : MonoBehaviour
         
     }
 
-    public void syougaibutuGeneration()
+    public void obstacleGenerate()
     {
-        Instantiate(syougaibutu);
+        Instantiate(obstacle, this.transform.position, Quaternion.identity);
     }
 
-    public void itemGeneration()
+    public void itemGenerate()
     {
-        Instantiate(item);
+        Instantiate(power_item1, this.transform.position, Quaternion.identity);
+    }
+
+    public void coinGenerate()
+    {
+
     }
 }
