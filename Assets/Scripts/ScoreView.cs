@@ -17,26 +17,27 @@ public class ScoreView : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Text rankText = RankText.GetComponent<Text>();
+        Text scoreText = ScoreText.GetComponent<Text>();
+
         score = ScoreManager.getscore();
 
         if (rank >= 90)
         {
-            RankText.text = string.Format("Rank:S");
+            rankText.text = string.Format("Rank:S");
         }
         else if (rank >= 80)
         {
-            RankText.text = string.Format("Rank:A");
+            rankText.text = string.Format("Rank:A");
         }
         else if (rank >= 70)
         {
-            RankText.text = string.Format("Rank:B");
-        }
-        else
-        {
-            RankText.text = string.Format("Rank:C");
+            rankText.text = string.Format("Rank:B");
         }
 
-        ScoreText.text = string.Format("Score:{0}", score);
+        rankText.text = string.Format("Rank:C");
+
+        scoreText.text = string.Format("Score:{0}", score);
 
     }
 
