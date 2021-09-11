@@ -28,8 +28,6 @@ public class ProgressBar : MonoBehaviour
         // Debug.Log(currentTime);
 
         // 進行率100%のときリザルト画面に遷移
-        // このとき、ScoreManagerのscoreパラメータをResultに渡したい
-        // https://qiita.com/tkyaji/items/361bd3d3d296516658f5
         if (slider.value == 1) {
             SceneManager.LoadScene("Scenes/Result");
         }

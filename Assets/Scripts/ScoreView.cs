@@ -22,15 +22,15 @@ public class ScoreView : MonoBehaviour
 
         score = ScoreManager.getscore();
 
-        if (rank >= 90)
+        if (score >= 90)
         {
             rankText.text = string.Format("Rank:S");
         }
-        else if (rank >= 80)
+        else if (score >= 80)
         {
             rankText.text = string.Format("Rank:A");
         }
-        else if (rank >= 70)
+        else if (score >= 70)
         {
             rankText.text = string.Format("Rank:B");
         }
