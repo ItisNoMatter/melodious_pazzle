@@ -7,6 +7,8 @@ TagManager:
   - Field Camera
   - notes
   - Obstacle
+  - powerUpLv1
+  - scoreUpLv1
   layers:
   - Default
   - TransparentFX
