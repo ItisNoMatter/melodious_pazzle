@@ -28,6 +28,13 @@ public class JsonSerialiZation : MonoBehaviour
     private string _dataPath;
     saveData savedataObj;
 
+    public AudioSource se;
+
+    private void Start()
+    {
+        se03 = GetComponent<AudioSource>();
+        se06 = GetComponent<AudioSource>();
+    }
 
     private void Awake()
     {
@@ -82,10 +89,18 @@ public class JsonSerialiZation : MonoBehaviour
 
         savedata = savedataObj.clearData;
 
-        Debug.Log(savedataObj);
+        Debug.Log(savedata);
 
-        // ゲームスタートの処理
-        SceneManager.LoadScene("Scenes/MainScene");
+        if (savedata != null)
+        {
+            // ゲームスタートの処理
+            se.PlayOneShot(se.clip);
+            SceneManager.LoadScene("Scenes/MainScene");
+        }
+        else
+        {
+            se.PlayOneShot(se.clip);
+        }
     }
 
 }

@@ -36,10 +36,6 @@ public class SettingLoad : MonoBehaviour
         _ = OpenConfigMenu();
     }
 
-    public void OnPressedLoadMenu()
-    {
-        OpenLoadMenu();
-    }
     // メインメニュー遷移後の処理
     public async Task OpenMainMenu()
     {
@@ -72,16 +68,4 @@ public class SettingLoad : MonoBehaviour
         configMenu.gameObject.SetActive(true);
     }
 
-    // ロード画面遷移後の処理
-    public void OpenLoadMenu()
-    {
-        GetComponent<AudioSource>().Play();
-        // Text text = Text.GetComponent<Text>();
-        // text.color = Color.yellow;
-
-        // スコアのセーブデータをロード
-        jsonSeriali.OnLoad();
-
-
-    }
 }
