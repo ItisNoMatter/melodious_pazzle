@@ -25,12 +25,14 @@ public class ProgressBar : MonoBehaviour
     {
         currentTime += Time.deltaTime;
         slider.value = (float)currentTime / (float)maxTime;
+
         // Debug.Log(currentTime);
 
         // 進行率100%のときリザルト画面に遷移
         if (slider.value == 1) {
             SceneManager.LoadScene("Scenes/Result");
         }
+
     }
 
 }
