@@ -14,7 +14,7 @@ public class PlayerMove : MonoBehaviour
 
 	[SerializeField] private Transform target;
 	[SerializeField] public GameObject locusObject; //経過した時間を受け取る変数
-	[SerializeField] public GameObject lineObject;
+	
 
 
 	//	[SerializeField] string FilePath;
