@@ -1,49 +1,65 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class JsonSerialiZation : MonoBehaviour
 {
-    // 位置データ
+    /*
+     * セーブデータとして保持しておきたいもの
+     * ステージクリアログ
+     * ハイスコア
+     */
+
+    public int score;
+    public int highScore;
+    // 保持しておきたいデータを格納するための配列
+    public int[] savedata = new int[2];
+    // クリア判定
+    public int stageClear;
+
     [System.Serializable]
-    private struct PositionData
+    private struct saveData
     {
-        public Vector3 position;
+        public int[] clearData;
     }
 
     // ファイルパス
     private string _dataPath;
+    saveData savedataObj;
+
+
     private void Awake()
     {
         // ファイルパスはカレントディレクトリ直下を指定
-        _dataPath = Path.Combine(Directory.GetCurrentDirectory(), "position.json");
+        _dataPath = Path.Combine(Directory.GetCurrentDirectory(), "savedata.json");
     }
-    private void Update()
+    public void OnPressedSaveButton()
     {
-        // 1キー押下で現在位置をセーブする
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        score = ScoreManager.getscore();
+        highScore = 0;
+        stageClear = ProgressBar.getstageClear();
+        
+        if (score >= highScore)
         {
-            OnSave();
+            highScore = score;
         }
 
-        // 2キー押下で現在位置をロードする
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            OnLoad();
-        }
+        savedata = new int[] { score, highScore, stageClear, 0, 0 };
 
-        // 方向キーで移動できるようにしておく
-        transform.position = transform.position + new Vector3(
-            Input.GetAxis("Horizontal"),
-            Input.GetAxis("Vertical")) * Time.deltaTime;
+        Debug.Log(score);
+
+        OnSave();
+
     }
 
     // JSON形式にシリアライズしてセーブ
     private void OnSave()
     {
         // シリアライズするオブジェクトを作成
-        var obj = new PositionData
+        var obj = new saveData
         {
-            position = transform.position
+            clearData = savedata
         };
 
         // JSON形式にシリアライズ
@@ -53,7 +69,6 @@ public class JsonSerialiZation : MonoBehaviour
         File.WriteAllText(_dataPath, json);
     }
 
-    // JSON形式をロードしてデシリアライズ
     public void OnLoad()
     {
         // 念のためファイルの存在チェック
@@ -63,9 +78,14 @@ public class JsonSerialiZation : MonoBehaviour
         var json = File.ReadAllText(_dataPath);
 
         // JSON形式からオブジェクトにデシリアライズ
-        var obj = JsonUtility.FromJson<PositionData>(json);
+        var obj = JsonUtility.FromJson<saveData>(json);
 
-        // Transformにオブジェクトのデータをセット
-        transform.position = obj.position;
+        savedata = savedataObj.clearData;
+
+        Debug.Log(savedataObj);
+
+        // ゲームスタートの処理
+        SceneManager.LoadScene("Scenes/MainScene");
     }
+
 }
