@@ -4,7 +4,8 @@ using UnityEngine;
 using System;
 public class ObjectSpawn : MonoBehaviour
 {
-    public GameObject syougaibutu;
+    public GameObject obstacle;
+
 
     public GameObject item;
 	private float delay;
@@ -35,6 +36,11 @@ public class ObjectSpawn : MonoBehaviour
 		public elements[] notes;
 		public float end;
     }
+
+    public GameObject power_item1,power_item2,power_item3;
+
+    public GameObject coin;
+
 
 
 	[Serializable]
@@ -110,6 +116,7 @@ public class ObjectSpawn : MonoBehaviour
         
     }
 
+
     // 譜面を読み込むための関数
 	public void JsonReader()
 	{
@@ -144,12 +151,18 @@ public class ObjectSpawn : MonoBehaviour
 		}
 	}
     public void syougaibutuGeneration()
+
     {
-        Instantiate(syougaibutu);
+        Instantiate(obstacle, this.transform.position, Quaternion.identity);
     }
 
-    public void itemGeneration()
+    public void itemGenerate()
     {
-        Instantiate(item);
+        Instantiate(power_item1, this.transform.position, Quaternion.identity);
+    }
+
+    public void coinGenerate()
+    {
+
     }
 }

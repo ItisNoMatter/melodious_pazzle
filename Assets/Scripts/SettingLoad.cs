@@ -13,12 +13,15 @@ public class SettingLoad : MonoBehaviour
     [SerializeField] Image configMenu;
     [SerializeField] Image loadMenu;
 
+    public Text Text;
+
     JsonSerialiZation jsonSeriali;
     // 決定音
-    private AudioSource se;
+    public AudioSource se;
 
     private void Start()
     {
+
         mainMenu.gameObject.SetActive(true);
         configMenu.gameObject.SetActive(false);
         se = GetComponent<AudioSource>();
@@ -41,10 +44,15 @@ public class SettingLoad : MonoBehaviour
     // メインメニュー遷移後の処理
     public async Task OpenMainMenu()
     {
+        Text text = Text.GetComponent<Text>();
+        // text.color = Color.yellow;
+
         // SE03(設定画面から出るときの音)を鳴らす
         se.PlayOneShot(se.clip);
 
-        await Task.Delay(3);
+        // ページ遷移が切り替わるタイミング
+        // SEの再生時間を考慮し、現状0.5sとしている
+        await Task.Delay(500);
 
         mainMenu.gameObject.SetActive(true);
         configMenu.gameObject.SetActive(false);
@@ -53,10 +61,13 @@ public class SettingLoad : MonoBehaviour
     // 設定画面遷移後の処理
     public async Task OpenConfigMenu()
     {
+        Text text = Text.GetComponent<Text>();
+        // text.color = Color.yellow;
+
         // SE05(設定画面に入る時の音)を鳴らす
         se.PlayOneShot(se.clip);
 
-        await Task.Delay(3);
+        await Task.Delay(500);
 
         mainMenu.gameObject.SetActive(false);
         configMenu.gameObject.SetActive(true);
@@ -65,10 +76,13 @@ public class SettingLoad : MonoBehaviour
     // ロード画面遷移後の処理
     public async Task OpenLoadMenu()
     {
+        Text text = Text.GetComponent<Text>();
+        // text.color = Color.yellow;
+
         // セーブデータをロード
         jsonSeriali.OnLoad();
 
-        await Task.Delay(3);
+        await Task.Delay(500);
 
         // ゲームスタートの処理
 
