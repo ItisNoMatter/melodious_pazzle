@@ -21,8 +21,6 @@ public class locusObject : MonoBehaviour
         step_time += Time.deltaTime;
         transform.position -= transform.right * speed * Time.deltaTime;
         step_time = 0.0f;  // 経過時間初期化
-        
-
     }
 
     
