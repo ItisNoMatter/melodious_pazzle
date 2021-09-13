@@ -32,8 +32,7 @@ public class JsonSerialiZation : MonoBehaviour
 
     private void Start()
     {
-        se03 = GetComponent<AudioSource>();
-        se06 = GetComponent<AudioSource>();
+        se = GetComponent<AudioSource>();
     }
 
     private void Awake()
@@ -91,15 +90,17 @@ public class JsonSerialiZation : MonoBehaviour
 
         Debug.Log(savedata);
 
-        if (savedata != null)
+        if (!File.Exists(_dataPath))
+        {
+            // セーブデータが存在しないとき
+            se.PlayOneShot(se.clip);
+            Debug.Log("セーブデータがありません");
+        }
+        else
         {
             // ゲームスタートの処理
             se.PlayOneShot(se.clip);
             SceneManager.LoadScene("Scenes/MainScene");
-        }
-        else
-        {
-            se.PlayOneShot(se.clip);
         }
     }
 
