@@ -206,7 +206,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ":\u300015"
+  m_Text: ":\u300030"
 --- !u!222 &8910182
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -245,6 +245,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef7c45b56d262b24ba1b3a4991079b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
+  highScore: 0
+  savedata: 0000000000000000
+  stageClearJudge: 0
+  se: {fileID: 0}
 --- !u!114 &53307254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1840,7 +1845,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ":\u300010"
+  m_Text: ":\u300020"
 --- !u!222 &1988392030
 CanvasRenderer:
   m_ObjectHideFlags: 0
