@@ -11,12 +11,14 @@ public class JsonSerialiZation : MonoBehaviour
      * ハイスコア
      */
 
-    public int score;
-    public int highScore;
+    private int score;
+    private int highScore;
     // 保持しておきたいデータを格納するための配列
     public int[] savedata = new int[2];
     // クリア判定
-    public int stageClearJudge;
+    private int stageClearJudge;
+
+    public static int[] loaddata = new int[2];
 
     [System.Serializable]
     private struct saveData
@@ -30,9 +32,12 @@ public class JsonSerialiZation : MonoBehaviour
 
     public AudioSource se;
 
+    // Result単体のデバッグ時にも読み込みたいので、起動時もロードする
     private void Start()
     {
         se = GetComponent<AudioSource>();
+        OnLoad();
+
     }
 
     private void Awake()
@@ -43,7 +48,6 @@ public class JsonSerialiZation : MonoBehaviour
     public void OnPressedSaveButton()
     {
         score = ScoreManager.getscore();
-        highScore = 0;
         stageClearJudge = ProgressBar.getstageClearJudge();
         
         if (score >= highScore)
@@ -52,8 +56,6 @@ public class JsonSerialiZation : MonoBehaviour
         }
 
         savedata = new int[] { score, highScore, stageClearJudge, 0, 0 };
-
-        Debug.Log(score);
 
         OnSave();
 
@@ -91,6 +93,14 @@ public class JsonSerialiZation : MonoBehaviour
         Debug.Log("highScore" + obj.clearData[1]);
         Debug.Log("stageClearJudge" + obj.clearData[2]);
 
+        loaddata = obj.clearData;
+
+    }
+
+    public void OnPerssedLoadButton()
+    {
+        OnLoad();
+
         if (!File.Exists(_dataPath))
         {
             // セーブデータが存在しないとき
@@ -103,6 +113,11 @@ public class JsonSerialiZation : MonoBehaviour
             se.PlayOneShot(se.clip);
             SceneManager.LoadScene("Scenes/MainScene");
         }
+    }
+
+    public static int[] getLoadData()
+    {
+        return loaddata;
     }
 
 }
