@@ -13,6 +13,7 @@ public class ScoreView : MonoBehaviour
     public Text HighScoreText;
 
     int score;
+    int highScore;
     int rank;
     int[] loadSaveData = new int[2];
 
@@ -42,6 +43,12 @@ public class ScoreView : MonoBehaviour
             rankText.text = string.Format("Rank:B");
         }
 
+        // ハイスコア更新
+        if (score >= highScore)
+        {
+            highScore = score;
+        }
+
         // スコア更新時、ハイスコアの表示も更新
         if (score >= loadSaveData[1])
         {
@@ -55,7 +62,8 @@ public class ScoreView : MonoBehaviour
         scoreText.text = string.Format("Score:{0}", score);
 
         // Twitter共有
-        naichilab.UnityRoomTweet.Tweet("YOUR-GAMEID", "RamenCadenceでハイスコア" + loadSaveData[1] + "を取得しました！");
+        // ramencadenceの部分は任意の(UnityRoom投稿時に設定した)"YOUR-GAMEID"
+        naichilab.UnityRoomTweet.Tweet("ramencadence", "RamenCadenceでハイスコア" + loadSaveData[1] + "を取得しました！");
         SocialConnector.SocialConnector.Share("RamenCadenceでハイスコア" + loadSaveData[1] + "を取得しました！", "https://twitter.com/denham95173179", null);
 
     }

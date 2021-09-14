@@ -14,10 +14,7 @@ public class ProgressBar : MonoBehaviour
     private static int stageClearJudge = 0;
 
     // 1ステージの時間を1m30sで固定
-    // private float maxTime = 90f;
-
-    // デバッグ用
-    private float maxTime = 0.5f;
+    private float maxTime = 90f;
 
     public Slider slider;
     void Start()
