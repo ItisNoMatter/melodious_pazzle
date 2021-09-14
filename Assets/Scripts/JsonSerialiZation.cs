@@ -16,7 +16,7 @@ public class JsonSerialiZation : MonoBehaviour
     // 保持しておきたいデータを格納するための配列
     public int[] savedata = new int[2];
     // クリア判定
-    public int stageClear;
+    public int stageClearJudge;
 
     [System.Serializable]
     private struct saveData
@@ -44,14 +44,14 @@ public class JsonSerialiZation : MonoBehaviour
     {
         score = ScoreManager.getscore();
         highScore = 0;
-        stageClear = ProgressBar.getstageClear();
+        stageClearJudge = ProgressBar.getstageClearJudge();
         
         if (score >= highScore)
         {
             highScore = score;
         }
 
-        savedata = new int[] { score, highScore, stageClear, 0, 0 };
+        savedata = new int[] { score, highScore, stageClearJudge, 0, 0 };
 
         Debug.Log(score);
 
@@ -86,9 +86,10 @@ public class JsonSerialiZation : MonoBehaviour
         // JSON形式からオブジェクトにデシリアライズ
         var obj = JsonUtility.FromJson<saveData>(json);
 
-        savedata = savedataObj.clearData;
-
-        Debug.Log(savedata);
+        // savedata.jsonから読み込んだクリアデータの整合性確認用
+        Debug.Log("score" + obj.clearData[0]);
+        Debug.Log("highScore" + obj.clearData[1]);
+        Debug.Log("stageClearJudge" + obj.clearData[2]);
 
         if (!File.Exists(_dataPath))
         {

@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
+// TODO: develop統合後、クラス名をProgressManagerにリファクタしたい
 public class ProgressBar : MonoBehaviour
 {
     ScoreManager scoreManager;
     public float currentTime;
 
     // ステージクリアを判定するための変数
-    private static int stageClear = 0;
+    private static int stageClearJudge = 0;
 
     // 1ステージの時間を1m30sで固定
     private float maxTime = 90f;
@@ -33,12 +33,12 @@ public class ProgressBar : MonoBehaviour
         // 進行率100%のときリザルト画面に遷移
         if (slider.value == 1) {
             SceneManager.LoadScene("Scenes/Result");
-            stageClear = 1;
+            stageClearJudge = 1;
         }
     }
-    public static int getstageClear()
+    public static int getstageClearJudge()
     {
-        return stageClear;
+        return stageClearJudge;
     }
 
 }
