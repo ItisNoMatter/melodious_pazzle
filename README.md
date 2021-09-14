@@ -2,6 +2,16 @@
 バージョン
 **2019.4.29f1(2D)**
 
+### ブランチの運用について(9/14追記)
+- `main`を本番用
+- `develop`を開発用
+と分けて運用していきたいです。  
+  
+**上記による変更点**  
+1. 作業ブランチはdevelopにcheckoutしてから切る  
+2. PR提出時はdevelopに向けて出す  
+3. マージ後の動作確認はdevelopに移動して行う  
+  
 ### 作業手順
 `git clone https://github.com/ItisNoMatter/melodious_pazzle.git`  
   
@@ -30,11 +40,12 @@ $ git branch
 作業が終わったら**Unityプロジェクトを一度閉じてから**、コミットしてプッシュしましょう.  
 以下のコマンドを順次実行する  
   
-`git pull origin main`  
+`git pull`  
 `git add .` or `git add hogehoge`  
 `git commit -m "XXXの機能を実装した"`  
-`git push origin fix_0_XXXXXX`  
-  
+`git push origin fix_0_XXXXXX` or `git push origin HEAD`  
+(HEADで今いるブランチのoriginに向けてpuhsします.間違いが起こりやすいので、**現在位置が自分の作業中のブランチであることを必ず確認してから使いましょう**)  
+    
 ### プルリクエストを出す  
 ![2021-08-18 (1)](https://user-images.githubusercontent.com/60646787/129770683-7c7f2ec4-7596-4a79-b577-521640c96640.png)  
 1. New Pull requestからプルリクエストを新規に作成.  
