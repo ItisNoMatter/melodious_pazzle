@@ -54,9 +54,12 @@ public class ScoreView : MonoBehaviour
 
         scoreText.text = string.Format("Score:{0}", score);
 
-        naichilab.UnityRoomTweet.TweetWithImage("YOUR-GAMEID", "RamenCadenceでハイスコア" + loadSaveData[1] + "を取得しました！");
+        // Twitter共有
+        naichilab.UnityRoomTweet.Tweet("YOUR-GAMEID", "RamenCadenceでハイスコア" + loadSaveData[1] + "を取得しました！");
+        SocialConnector.SocialConnector.Share("RamenCadenceでハイスコア" + loadSaveData[1] + "を取得しました！", "https://twitter.com/denham95173179", null);
 
     }
+
 
     public void LoadPressedExitButton()
     {
