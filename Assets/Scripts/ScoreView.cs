@@ -64,7 +64,8 @@ public class ScoreView : MonoBehaviour
         // Twitter共有
         // ramencadenceの部分は任意の(UnityRoom投稿時に設定した)"YOUR-GAMEID"
         naichilab.UnityRoomTweet.Tweet("ramencadence", "RamenCadenceでハイスコア" + loadSaveData[1] + "を取得しました！");
-        SocialConnector.SocialConnector.Share("RamenCadenceでハイスコア" + loadSaveData[1] + "を取得しました！", "https://twitter.com/denham95173179", null);
+        // Android/iOS用
+        // SocialConnector.SocialConnector.Share("RamenCadenceでハイスコア" + loadSaveData[1] + "を取得しました！", "https://twitter.com/**********", null);
 
     }
 
