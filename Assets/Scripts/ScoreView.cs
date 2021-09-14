@@ -10,17 +10,24 @@ public class ScoreView : MonoBehaviour
     public Text ScoreText;
     public Text ExitText;
     public Text RetryText;
+    public Text HighScoreText;
 
     int score;
     int rank;
+    int[] loadSaveData = new int[2];
 
     // Start is called before the first frame update
     void Start()
     {
         Text rankText = RankText.GetComponent<Text>();
         Text scoreText = ScoreText.GetComponent<Text>();
+        Text highScoreText = HighScoreText.GetComponent<Text>();
 
         score = ScoreManager.getscore();
+
+        loadSaveData = JsonSerialiZation.loaddata;
+        Debug.Log("LoadScore" + loadSaveData[0]);
+        Debug.Log("LoadHighScore" + loadSaveData[1]);
 
         if (score >= 90)
         {
@@ -35,7 +42,15 @@ public class ScoreView : MonoBehaviour
             rankText.text = string.Format("Rank:B");
         }
 
+        // スコア更新時、ハイスコアの表示も更新
+        if (score >= loadSaveData[1])
+        {
+            loadSaveData[1] = score;
+        }
+
         rankText.text = string.Format("Rank:C");
+
+        highScoreText.text = string.Format("HighScore:{0}", loadSaveData[1]);
 
         scoreText.text = string.Format("Score:{0}", score);
 

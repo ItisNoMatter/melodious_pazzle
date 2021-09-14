@@ -5,13 +5,12 @@ using UnityEngine.UI;
 
 using System.Threading;
 using System.Threading.Tasks;
-
+using UnityEngine.SceneManagement;
 
 public class SettingLoad : MonoBehaviour
 {
     [SerializeField] Image mainMenu;
     [SerializeField] Image configMenu;
-    [SerializeField] Image loadMenu;
 
     public Text Text;
 
@@ -37,10 +36,6 @@ public class SettingLoad : MonoBehaviour
         _ = OpenConfigMenu();
     }
 
-    public void OnPressedLoadMenu()
-    {
-        _ = OpenLoadMenu();
-    }
     // メインメニュー遷移後の処理
     public async Task OpenMainMenu()
     {
@@ -73,18 +68,4 @@ public class SettingLoad : MonoBehaviour
         configMenu.gameObject.SetActive(true);
     }
 
-    // ロード画面遷移後の処理
-    public async Task OpenLoadMenu()
-    {
-        Text text = Text.GetComponent<Text>();
-        // text.color = Color.yellow;
-
-        // セーブデータをロード
-        jsonSeriali.OnLoad();
-
-        await Task.Delay(500);
-
-        // ゲームスタートの処理
-
-    }
 }
