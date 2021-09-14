@@ -54,6 +54,8 @@ public class ScoreView : MonoBehaviour
 
         scoreText.text = string.Format("Score:{0}", score);
 
+        naichilab.UnityRoomTweet.TweetWithImage("YOUR-GAMEID", "RamenCadenceでハイスコア" + loadSaveData[1] + "を取得しました！");
+
     }
 
     public void LoadPressedExitButton()
