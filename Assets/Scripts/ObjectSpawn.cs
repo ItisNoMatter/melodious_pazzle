@@ -5,8 +5,11 @@ using System;
 public class ObjectSpawn : MonoBehaviour
 {
 	public GameObject obstacle;
-	public GameObject power_item;
+	public GameObject power_item_1;
+	public GameObject power_item_2;
 	public GameObject score_item;
+
+	GameObject[] itemBox = new GameObject[3];
 
 	private float delay;
 	string Title;
@@ -16,6 +19,7 @@ public class ObjectSpawn : MonoBehaviour
 	List<string> nameList = new List<string>();
 	List<float> melodyscore = new List<float>();
 	private int melodycount;
+	int index;
 
 	[Serializable]
 	public class InputJson
@@ -106,23 +110,32 @@ public class ObjectSpawn : MonoBehaviour
 			{
 				melodyscore.Add(4.75f);
 			}
-		}
 
+			//アイテム配列にゲームオブジェクトを挿入
+			itemBox[0] = power_item_1;
+			itemBox[1] = power_item_2;
+			itemBox[2] = score_item;
+		}
 
 		// コルーチンの起動
 		StartCoroutine(DelayCoroutine(delay, () =>
 		{
+            //乱数の生成
+            System.Random random = new System.Random();
+			index = random.Next(0, 3);
+
 			// X秒後にここの処理が実行される
 
 			// TODO:生成アイテムを乱数で変化させたい
-			Instantiate(power_item, new Vector2(6.0f, melodyscore[melodycount]), Quaternion.identity);
+			// 0から2の間で乱数を発生させ、出現アイテムを変化させる
+			Instantiate(itemBox[index], new Vector2(6.0f, melodyscore[melodycount]), Quaternion.identity);
 
 
 			//とりあえず空間ができるように障害物を配置
 
 			// TODO:障害物の配置方法の検討
-			Instantiate(obstacle, new Vector2(6.0f, melodyscore[melodycount] - 1), Quaternion.identity);
-			Instantiate(obstacle, new Vector2(6.0f, melodyscore[melodycount] + 2), Quaternion.identity);
+			Instantiate(obstacle, new Vector2(5.0f, melodyscore[melodycount] - 2), Quaternion.identity);
+			Instantiate(obstacle, new Vector2(5.0f, melodyscore[melodycount] + 2), Quaternion.identity);
 
 			melodycount++;
 		}));

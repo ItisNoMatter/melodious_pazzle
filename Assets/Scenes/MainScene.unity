@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 46763296}
   - component: {fileID: 46763297}
   m_Layer: 0
-  m_Name: Spawnpoint_C2
+  m_Name: Spawnpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -308,7 +308,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacle: {fileID: 8993675786066616148, guid: 0931c2bb22ff07b45a9f0dc13852f688,
     type: 3}
-  power_item: {fileID: 5129722384154539325, guid: a19a78952213f9848b413f5e92ca0146,
+  power_item_1: {fileID: 5129722384154539325, guid: a19a78952213f9848b413f5e92ca0146,
+    type: 3}
+  power_item_2: {fileID: 5248389911074090825, guid: 763749fd39454da4fa51db0315741b7a,
     type: 3}
   score_item: {fileID: 1127633225765515380, guid: fddd96b5f5dc32d4dad6c62ed67de727,
     type: 3}
@@ -2220,9 +2222,9 @@ GameObject:
   - component: {fileID: 1338576900}
   - component: {fileID: 1338576899}
   - component: {fileID: 1338576897}
-  - component: {fileID: 1338576901}
   - component: {fileID: 1338576898}
   - component: {fileID: 1338576902}
+  - component: {fileID: 1338576901}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2242,7 +2244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2319b0b5f6a27c74cba6b2e2dc97498c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 10
   target: {fileID: 1338576900}
   locusObject: {fileID: 6670544484718445761, guid: a3efffa6504f306468c7684dacafbe96,
     type: 3}
@@ -2333,8 +2335,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1338576901
-BoxCollider2D:
+--- !u!70 &1338576901
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2347,18 +2349,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
-    newSize: {x: 4, y: 4}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4, y: 4}
-  m_EdgeRadius: 0
+  m_Size: {x: 2, y: 2}
+  m_Direction: 0
 --- !u!114 &1338576902
 MonoBehaviour:
   m_ObjectHideFlags: 0
