@@ -48,12 +48,8 @@ public class JsonSerialiZation : MonoBehaviour
     public void OnPressedSaveButton()
     {
         score = ScoreManager.getscore();
+        highScore = ScoreManager.getscore();
         stageClearJudge = ProgressBar.getstageClearJudge();
-        
-        if (score >= highScore)
-        {
-            highScore = score;
-        }
 
         savedata = new int[] { score, highScore, stageClearJudge, 0, 0 };
 
