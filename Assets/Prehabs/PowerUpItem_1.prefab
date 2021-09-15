@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5129722384154539326}
   - component: {fileID: 5129722384154539327}
   - component: {fileID: 5129722384154539324}
-  - component: {fileID: -7096778261752645787}
+  - component: {fileID: 2095284042938865682}
   m_Layer: 0
   m_Name: PowerUpItem_1
   m_TagString: powerUpLv1
@@ -145,7 +145,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-7096778261752645787
+--- !u!114 &2095284042938865682
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5129722384154539325}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a19959df52b6675448f72b23e9643c4c, type: 3}
+  m_Script: {fileID: 11500000, guid: 44af73386ba56c74f84180f8b2c0d3b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
