@@ -13,8 +13,9 @@ public class ProgressBar : MonoBehaviour
     // ステージクリアを判定するための変数
     private static int stageClearJudge = 0;
 
-    // 1ステージの時間を1m30sで固定
-    private float maxTime = 90f;
+    // 1ステージの時間を50sで固定
+    // ここを60s以上にするとエラーが発生する。tickslist[n+1] - tickslist[n] の部分が、最後のほうまで行った時の配列オーバーによって起こる模様。
+    private float maxTime = 50f;
 
     public Slider slider;
     void Start()
