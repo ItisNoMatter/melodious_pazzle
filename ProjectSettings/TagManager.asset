@@ -9,6 +9,8 @@ TagManager:
   - Obstacle
   - powerUpLv1
   - scoreUpLv1
+  - powerUpLv2
+  - powerUpLv3
   layers:
   - Default
   - TransparentFX

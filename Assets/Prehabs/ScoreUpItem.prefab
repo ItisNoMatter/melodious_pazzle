@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -1066333718680952259}
   m_Layer: 0
   m_Name: ScoreUpItem
-  m_TagString: powerUpLv2
+  m_TagString: powerUpLv3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

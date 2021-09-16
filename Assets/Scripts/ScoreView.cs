@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -24,23 +25,28 @@ public class ScoreView : MonoBehaviour
         Text scoreText = ScoreText.GetComponent<Text>();
         Text highScoreText = HighScoreText.GetComponent<Text>();
 
-        score = ScoreManager.getscore();
+        //スコアの取得をしたい
+        score = PlayerHealthManager.score;
 
         loadSaveData = JsonSerialiZation.loaddata;
         Debug.Log("LoadScore" + loadSaveData[0]);
         Debug.Log("LoadHighScore" + loadSaveData[1]);
 
-        if (score >= 90)
+        if (score >= 900)
         {
             rankText.text = string.Format("Rank:S");
         }
-        else if (score >= 80)
+        else if (score >= 700)
         {
             rankText.text = string.Format("Rank:A");
         }
-        else if (score >= 70)
+        else if (score >= 50)
         {
             rankText.text = string.Format("Rank:B");
+        }
+        else
+        {
+            rankText.text = string.Format("Rank:C");
         }
 
         // ハイスコア更新
@@ -55,15 +61,23 @@ public class ScoreView : MonoBehaviour
             loadSaveData[1] = score;
         }
 
-        rankText.text = string.Format("Rank:C");
+        //rankText.text = string.Format("Rank:C");
 
         highScoreText.text = string.Format("HighScore:{0}", loadSaveData[1]);
 
         scoreText.text = string.Format("Score:{0}", score);
 
+        if (EditorUtility.DisplayDialog("Result", "結果をTwitterで共有しよう！", "Twitterを開く", "閉じる"))
+        {
+            naichilab.UnityRoomTweet.Tweet("ramencadence", "RamenCadenceでハイスコア" + loadSaveData[1] + "を取得しました！");
+        }
+        else
+        {
+            //Debug.Log("No");
+        }
         // Twitter共有
         // ramencadenceの部分は任意の(UnityRoom投稿時に設定した)"YOUR-GAMEID"
-        naichilab.UnityRoomTweet.Tweet("ramencadence", "RamenCadenceでハイスコア" + loadSaveData[1] + "を取得しました！");
+        //naichilab.UnityRoomTweet.Tweet("ramencadence", "RamenCadenceでハイスコア" + loadSaveData[1] + "を取得しました！");
         // Android/iOS用
         // SocialConnector.SocialConnector.Share("RamenCadenceでハイスコア" + loadSaveData[1] + "を取得しました！", "https://twitter.com/**********", null);
 

@@ -133,5 +133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerUpItem_2 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5129722384154539325, guid: a19a78952213f9848b413f5e92ca0146,
+        type: 3}
+      propertyPath: m_TagString
+      value: powerUpLv2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a19a78952213f9848b413f5e92ca0146, type: 3}
