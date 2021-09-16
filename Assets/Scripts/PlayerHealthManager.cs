@@ -10,6 +10,10 @@ public class PlayerHealthManager : MonoBehaviour
     int currentHp;
     public Slider slider;
 
+    public static int score;
+
+    public AudioSource se;
+
     [SerializeField]
     GameObject playerObject;
 
@@ -18,9 +22,12 @@ public class PlayerHealthManager : MonoBehaviour
 
     void Start()
     {
-        slider.value = 1;
+        score = 0;
+        slider.value = 0.3f;
         currentHp = 30; // 初期HPは30固定
         slider.gameObject.SetActive(true);
+        se = GetComponent<AudioSource>();
+
     }
 
     /*private void OnCollisionEnter2D(Collision2D collider)
@@ -50,40 +57,46 @@ public class PlayerHealthManager : MonoBehaviour
             slider.value = (float)currentHp / (float)maxHp;
 
             //Debug.Log(currentHp);
-            currentPlayerHp(currentHp);
+            //currentPlayerHp(currentHp);
         }
         if (collider.gameObject.tag == "powerUpLv1")
         {
-            int care = 5; // パワー回復アイテムは5,20,30の3つを想定
+            int care = 1; // パワー回復アイテムは5,20,30の3つを想定
 
             currentHp = currentHp + care;
 
             slider.value = (float)currentHp / (float)maxHp;
 
+            score += 5;
+
             //Debug.Log(currentHp);
-            currentPlayerHp(currentHp);
+            //currentPlayerHp(currentHp);
         }
         if (collider.gameObject.tag == "powerUpLv2")
         {
-            int care = 10; // パワー回復アイテムは5,20,30の3つを想定
+            int care = 2; // パワー回復アイテムは5,20,30の3つを想定
 
             currentHp = currentHp + care;
 
             slider.value = (float)currentHp / (float)maxHp;
 
+            score += 20;
+
             //Debug.Log(currentHp);
-            currentPlayerHp(currentHp);
+            //currentPlayerHp(currentHp);
         }
         if (collider.gameObject.tag == "powerUpLv3")
         {
-            int care = 30; // パワー回復アイテムは5,20,30の3つを想定
+            int care = 3; // パワー回復アイテムは5,20,30の3つを想定
 
             currentHp = currentHp + care;
 
             slider.value = (float)currentHp / (float)maxHp;
 
+            score += 30;
+
             //Debug.Log(currentHp);
-            currentPlayerHp(currentHp);
+            //currentPlayerHp(currentHp);
         }
         currentPlayerHp(currentHp);
     }
@@ -94,8 +107,9 @@ public class PlayerHealthManager : MonoBehaviour
 
         if (currentHp <= 0)
         {
-            Debug.Log("Game Over");
+            //Debug.Log("Game Over");
             slider.gameObject.SetActive(false);
+            se.PlayOneShot(se.clip);
 
             Invoke("ShakeCamera", 1.0f);
             Invoke("PlayerDirection", 1.5f);
@@ -124,4 +138,8 @@ public class PlayerHealthManager : MonoBehaviour
         SceneManager.LoadScene("Scenes/GameOver");
     }
 
+    public void Update()
+    {
+        
+    }
 }

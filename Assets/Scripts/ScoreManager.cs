@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
+    // 得点管理をPlayerHealthManagerで行うようになったため、こちらは削除してよさそう。
     public static int score;
     int point;
 
