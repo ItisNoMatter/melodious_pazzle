@@ -12,6 +12,8 @@ public class PlayerHealthManager : MonoBehaviour
 
     public static int score;
 
+    public AudioSource se;
+
     [SerializeField]
     GameObject playerObject;
 
@@ -24,7 +26,8 @@ public class PlayerHealthManager : MonoBehaviour
         slider.value = 0.3f;
         currentHp = 30; // 初期HPは30固定
         slider.gameObject.SetActive(true);
-        
+        se = GetComponent<AudioSource>();
+
     }
 
     /*private void OnCollisionEnter2D(Collision2D collider)
@@ -106,6 +109,7 @@ public class PlayerHealthManager : MonoBehaviour
         {
             //Debug.Log("Game Over");
             slider.gameObject.SetActive(false);
+            se.PlayOneShot(se.clip);
 
             Invoke("ShakeCamera", 1.0f);
             Invoke("PlayerDirection", 1.5f);
@@ -132,6 +136,12 @@ public class PlayerHealthManager : MonoBehaviour
     private void SceneMove()
     {
         SceneManager.LoadScene("Scenes/GameOver");
+    }
+
+    // ScoreViewへの値渡し用(プロパティの値がリセットされてしまうため)
+    public static int getscore()
+    {
+        return score;
     }
 
     public void Update()
