@@ -47,8 +47,8 @@ public class JsonSerialiZation : MonoBehaviour
     }
     public void OnPressedSaveButton()
     {
-        score = ScoreManager.getscore();
-        highScore = ScoreManager.getscore();
+        score = PlayerHealthManager.score;
+        highScore = ScoreView.highScore;
         stageClearJudge = ProgressBar.getstageClearJudge();
 
         savedata = new int[] { score, highScore, stageClearJudge, 0, 0 };

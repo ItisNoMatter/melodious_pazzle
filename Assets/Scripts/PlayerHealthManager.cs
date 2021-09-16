@@ -138,12 +138,6 @@ public class PlayerHealthManager : MonoBehaviour
         SceneManager.LoadScene("Scenes/GameOver");
     }
 
-    // ScoreViewへの値渡し用(プロパティの値がリセットされてしまうため)
-    public static int getscore()
-    {
-        return score;
-    }
-
     public void Update()
     {
         

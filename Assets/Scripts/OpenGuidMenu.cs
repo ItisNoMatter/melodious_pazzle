@@ -10,7 +10,7 @@ public class OpenGuidMenu : MonoBehaviour
 
     private void Start()
     {
-        score = ScoreManager.getscore();
+        score = PlayerHealthManager.score;
     }
     void Update()
     {
