@@ -48,6 +48,7 @@ public class JsonSerialiZation : MonoBehaviour
     public void OnPressedSaveButton()
     {
         score = PlayerHealthManager.score;
+        // ハイスコアはScoreViewで決算しているため、ScoreViewから参照する
         highScore = ScoreView.highScore;
         stageClearJudge = ProgressBar.getstageClearJudge();
 
@@ -73,6 +74,7 @@ public class JsonSerialiZation : MonoBehaviour
         File.WriteAllText(_dataPath, json);
     }
 
+    // ローディングしなければスコア/ハイスコアは更新されない
     public void OnLoad()
     {
         // 念のためファイルの存在チェック
