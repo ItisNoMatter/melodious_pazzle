@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
 public class ObjectSpawn : MonoBehaviour
 {
-    public GameObject obstacle;
+    
+	public GameObject obstacle;
 
 
     public GameObject item;
@@ -12,7 +14,8 @@ public class ObjectSpawn : MonoBehaviour
     string Title;
 	List<GameObject> Notes;
 	float ticks;
-	List<float> ticksList = new List<float>();
+	//List<float> ticksList = new List<float>();
+	List<float> timeList=new List<float>();
     List<string> nameList=new List<string>();
 	List<float> melodyscore=new List<float>();
 	private  int melodycount;
@@ -59,7 +62,15 @@ public class ObjectSpawn : MonoBehaviour
     {
         JsonReader();
         //遅れる秒数を変化させたい
-		delay = (ticksList[0]/1000);
+		//4拍で1920ticks
+		//1拍で480ticks
+		//150拍で60s
+		//480*150ticksで60s
+		//480*150/60ticksで1s
+		//60/(480*150)sで1ticks
+		//delay = ((ticksList[0])*(60/(480*150)));
+		//delay = ticksList[0]/1000;
+		delay = timeList[0];
 
 		foreach(string melody in nameList){
 			if(melody=="D4"){
@@ -120,7 +131,7 @@ public class ObjectSpawn : MonoBehaviour
     // 譜面を読み込むための関数
 	public void JsonReader()
 	{
-		string inputString = Resources.Load<TextAsset>("Ramen_ver2").ToString();
+		string inputString = Resources.Load<TextAsset>("melody").ToString();
 
 		InputJson inputjson = JsonUtility.FromJson<InputJson>(inputString);
 		//Title = json["title"].Get<string>();
@@ -129,8 +140,9 @@ public class ObjectSpawn : MonoBehaviour
 		foreach(var track in inputjson.tracks){
 			foreach(var note in track.notes)
             {
-				ticksList.Add(note.ticks);
+				//ticksList.Add(note.ticks);
                 nameList.Add(note.name);
+				timeList.Add(note.time);
 			}
 		}
 	}
@@ -141,9 +153,11 @@ public class ObjectSpawn : MonoBehaviour
 		{
 			yield return new WaitForSeconds(seconds);
 			action?.Invoke();
-			for (int n = 0; n < ticksList.Count - 1; n++) 
+			for (int n = 0; n < timeList.Count - 1; n++) 
 			{ 
-				seconds = (ticksList[n + 1] - ticksList[n]) / 1000;
+				//seconds = (ticksList[n + 1] - ticksList[n])*(60/(480*150));
+				//seconds = (ticksList[n + 1] - ticksList[n])/1000;
+				seconds = (timeList[n + 1] - timeList[n]);
 				yield return new WaitForSeconds(seconds);
 				action?.Invoke();
 				

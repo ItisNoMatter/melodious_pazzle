@@ -29,7 +29,7 @@ public class ItemController : MonoBehaviour
         script_C2 = spawnpoint_C2.GetComponent<ObjectSpawn>();
         
 
-        script_C2.obstacleGenerate();
+        //script_C2.obstacleGenerate();
     }
 
     // Update is called once per frame
@@ -37,4 +37,7 @@ public class ItemController : MonoBehaviour
     {
         
     }
+    //void obstacleGenerate(){
+        
+    //}
 }
