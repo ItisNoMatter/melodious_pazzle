@@ -103,15 +103,15 @@ public class ObjectSpawn : MonoBehaviour
 			{
 				melodyscore.Add(2.65f);
 			}
-			if (melody == "F5")
+			if (melody == "G5")
 			{
 				melodyscore.Add(3.3f);
 			}
-			if (melody == "G5")
+			if (melody == "B5")
 			{
 				melodyscore.Add(4.0f);
 			}
-			if (melody == "A5")
+			if (melody == "D6")
 			{
 				melodyscore.Add(4.75f);
 			}
@@ -139,8 +139,8 @@ public class ObjectSpawn : MonoBehaviour
 			//とりあえず空間ができるように障害物を配置
 
 			// TODO:障害物の配置方法の検討
-			Instantiate(obstacle, new Vector2(5.0f, melodyscore[melodycount] - 2), Quaternion.identity);
-			Instantiate(obstacle, new Vector2(5.0f, melodyscore[melodycount] + 2), Quaternion.identity);
+			Instantiate(obstacle, new Vector2(6.0f, melodyscore[melodycount] - 3), Quaternion.identity);
+			Instantiate(obstacle, new Vector2(6.0f, melodyscore[melodycount] + 3), Quaternion.identity);
 
 			melodycount++;
 		}));
