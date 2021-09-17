@@ -68,11 +68,11 @@ public class ScoreView : MonoBehaviour
 
         scoreText.text = string.Format("Score:{0}", score);
 
-        if (EditorUtility.DisplayDialog("Result", "結果をTwitterで共有しよう！", "Twitterを開く", "閉じる"))
-        {
+//        if (EditorUtility.DisplayDialog("Result", "結果をTwitterで共有しよう！", "Twitterを開く", "閉じる"))
+//        {
             naichilab.UnityRoomTweet.Tweet("ramencadence", "RamenCadenceでハイスコア" + highScore + "を取得しました！");
-        }
-        else
+//        }
+//        else
         {
             //Debug.Log("No");
         }
