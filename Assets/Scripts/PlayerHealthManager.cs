@@ -116,13 +116,16 @@ public class PlayerHealthManager : MonoBehaviour
                 slider.gameObject.SetActive(false);
 
                 playerDead = true;
-                se.PlayOneShot(se.clip);
                 Debug.Log(se);
 
                 Invoke("ShakeCamera", 1.0f);
                 Invoke("PlayerDirection", 1.5f);
                 Invoke("PlayerMove", 2.0f);
+
+                se.PlayOneShot(se.clip);
+
                 Invoke("SceneMove", 3.0f);
+
             }
         }
     }
