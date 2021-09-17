@@ -85,7 +85,8 @@ public class PlayerMove : MonoBehaviour
 		_fieldCamera = obj.GetComponent<Camera>();
 
 		//遅れる秒数を変化させたい
-		delay = timeList[0]+4.178f;
+		delay = timeList[0]+4.178f+0.2f;
+		
 
 		// コルーチンの起動
 		StartCoroutine(DelayCoroutine(delay, () =>
@@ -134,7 +135,7 @@ public class PlayerMove : MonoBehaviour
 		}
 		if (Input.GetKey("down") | Input.GetKey("s"))
 		{
-			if (playerPosition.y < getScreenBottomLeft().y)
+			if (playerPosition.y+0.2f < getScreenBottomLeft().y)
 			{
 				transform.position += transform.up * speed * Time.deltaTime;
 			}

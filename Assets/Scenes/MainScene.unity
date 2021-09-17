@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 13455899}
   - component: {fileID: 13455897}
   m_Layer: 0
-  m_Name: pianoA
+  m_Name: A4
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 70547637}
   - component: {fileID: 70547635}
   m_Layer: 0
-  m_Name: pianoHi_A
+  m_Name: D6
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -377,7 +377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0444ffcdffe00bb449cfb5a6b2ee886c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioclip: {fileID: 8300000, guid: 81e2b28df284ae64dad0fb82c5742c96, type: 3}
+  audioclip: {fileID: 8300000, guid: 04daeecb9fb52f34f9c0cf63484d3f2b, type: 3}
 --- !u!50 &70547637
 Rigidbody2D:
   serializedVersion: 4
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 224268049}
   - component: {fileID: 224268051}
   m_Layer: 0
-  m_Name: pianoHi_D
+  m_Name: D5
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -828,7 +828,7 @@ GameObject:
   - component: {fileID: 498635886}
   - component: {fileID: 498635884}
   m_Layer: 0
-  m_Name: pianoC
+  m_Name: C5
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1165,7 +1165,7 @@ GameObject:
   - component: {fileID: 524365730}
   - component: {fileID: 524365729}
   m_Layer: 0
-  m_Name: pianoF#
+  m_Name: F#4
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1425,7 +1425,7 @@ GameObject:
   - component: {fileID: 605408796}
   - component: {fileID: 605408798}
   m_Layer: 0
-  m_Name: pianoHi_G
+  m_Name: B5
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1464,7 +1464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0444ffcdffe00bb449cfb5a6b2ee886c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioclip: {fileID: 8300000, guid: 6f1c706549aee5b4386f060900758817, type: 3}
+  audioclip: {fileID: 8300000, guid: 5842baf474d04234b8443bb223951d22, type: 3}
 --- !u!61 &605408798
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1753,7 +1753,7 @@ GameObject:
   - component: {fileID: 863020099}
   - component: {fileID: 863020098}
   m_Layer: 0
-  m_Name: pianoD
+  m_Name: D4
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2386,7 +2386,7 @@ GameObject:
   - component: {fileID: 1346262185}
   - component: {fileID: 1346262184}
   m_Layer: 0
-  m_Name: pianoG
+  m_Name: G4
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2733,7 +2733,7 @@ GameObject:
   - component: {fileID: 1505110874}
   - component: {fileID: 1505110872}
   m_Layer: 0
-  m_Name: pianoHi_E
+  m_Name: E5
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4904,7 +4904,7 @@ GameObject:
   - component: {fileID: 1797634654}
   - component: {fileID: 1797634652}
   m_Layer: 0
-  m_Name: pianoHi_F
+  m_Name: G5
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4948,7 +4948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0444ffcdffe00bb449cfb5a6b2ee886c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioclip: {fileID: 8300000, guid: bd10b56ac2385e04883e1c1994be81b9, type: 3}
+  audioclip: {fileID: 8300000, guid: 6f1c706549aee5b4386f060900758817, type: 3}
 --- !u!50 &1797634654
 Rigidbody2D:
   serializedVersion: 4
@@ -5046,7 +5046,7 @@ GameObject:
   - component: {fileID: 1880557069}
   - component: {fileID: 1880557071}
   m_Layer: 0
-  m_Name: pianoB
+  m_Name: B4
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5262,7 +5262,7 @@ GameObject:
   - component: {fileID: 1966927271}
   - component: {fileID: 1966927270}
   m_Layer: 0
-  m_Name: pianoE
+  m_Name: E4
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
