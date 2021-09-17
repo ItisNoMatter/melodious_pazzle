@@ -21,8 +21,8 @@ public class PlayerMove : MonoBehaviour
 	string Title;
 	List<GameObject> Notes;
 	float ticks;
-	List<float> ticksList = new List<float>();
-
+	//List<float> ticksList = new List<float>();
+	List<float> timeList=new List<float>();
 
 	[Serializable]
 	public class InputJson
@@ -60,7 +60,7 @@ public class PlayerMove : MonoBehaviour
 	// 譜面を読み込むための関数
 	public void JsonReader()
 	{
-		string inputString = Resources.Load<TextAsset>("Ramen_ver2").ToString();
+		string inputString = Resources.Load<TextAsset>("melody").ToString();
 
 		InputJson inputjson = JsonUtility.FromJson<InputJson>(inputString);
 		//Title = json["title"].Get<string>();
@@ -69,7 +69,8 @@ public class PlayerMove : MonoBehaviour
 		foreach(var track in inputjson.tracks){
 			foreach(var note in track.notes)
             {
-				ticksList.Add(note.ticks);
+				//ticksList.Add(note.ticks);
+				timeList.Add(note.time);
 			}
 		}
 	}
@@ -84,7 +85,7 @@ public class PlayerMove : MonoBehaviour
 		_fieldCamera = obj.GetComponent<Camera>();
 
 		//遅れる秒数を変化させたい
-		delay = (ticksList[0]/1000)+1;
+		delay = timeList[0]+4.178f;
 
 		// コルーチンの起動
 		StartCoroutine(DelayCoroutine(delay, () =>
@@ -102,9 +103,11 @@ public class PlayerMove : MonoBehaviour
 		{
 			yield return new WaitForSeconds(seconds);
 			action?.Invoke();
-			for (int n = 0; n < ticksList.Count - 1; n++) 
+			for (int n = 0; n < timeList.Count - 1; n++) 
 			{ 
-				seconds = (ticksList[n + 1] - ticksList[n]) / 1000;
+				//seconds = (ticksList[n + 1] - ticksList[n])*(60/(480*150));
+				//seconds = (ticksList[n + 1] - ticksList[n])/1000;
+				seconds = (timeList[n + 1] - timeList[n]);
 				yield return new WaitForSeconds(seconds);
 				action?.Invoke();
 				

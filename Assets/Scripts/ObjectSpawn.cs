@@ -15,7 +15,8 @@ public class ObjectSpawn : MonoBehaviour
 	string Title;
 	List<GameObject> Notes;
 	float ticks;
-	List<float> ticksList = new List<float>();
+	//List<float> ticksList = new List<float>();
+	List<float> timeList=new List<float>();
 	List<string> nameList = new List<string>();
 	List<float> melodyscore = new List<float>();
 	private int melodycount;
@@ -42,6 +43,10 @@ public class ObjectSpawn : MonoBehaviour
 	}
 
 
+    public GameObject power_item1,power_item2,power_item3;
+
+    public GameObject coin;
+
 	[Serializable]
 	public class elements
 	{
@@ -58,7 +63,7 @@ public class ObjectSpawn : MonoBehaviour
 	{
 		JsonReader();
 		//遅れる秒数を変化させたい
-		delay = (ticksList[0] / 1000);
+		delay = timeList[0];
 
 		foreach (string melody in nameList)
 		{
@@ -150,7 +155,7 @@ public class ObjectSpawn : MonoBehaviour
 	// 譜面を読み込むための関数
 	public void JsonReader()
 	{
-		string inputString = Resources.Load<TextAsset>("Ramen_ver2").ToString();
+		string inputString = Resources.Load<TextAsset>("melody").ToString();
 
 		InputJson inputjson = JsonUtility.FromJson<InputJson>(inputString);
 		//Title = json["title"].Get<string>();
@@ -160,7 +165,7 @@ public class ObjectSpawn : MonoBehaviour
 		{
 			foreach (var note in track.notes)
 			{
-				ticksList.Add(note.ticks);
+				timeList.Add(note.time);
 				nameList.Add(note.name);
 			}
 		}
@@ -172,9 +177,9 @@ public class ObjectSpawn : MonoBehaviour
 		{
 			yield return new WaitForSeconds(seconds);
 			action?.Invoke();
-			for (int n = 0; n < ticksList.Count - 1; n++)
+			for (int n = 0; n < timeList.Count - 1; n++)
 			{
-				seconds = (ticksList[n + 1] - ticksList[n]) / 1000;
+				seconds = (timeList[n + 1] - timeList[n]);
 				yield return new WaitForSeconds(seconds);
 				action?.Invoke();
 
