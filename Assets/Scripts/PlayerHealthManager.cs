@@ -20,8 +20,11 @@ public class PlayerHealthManager : MonoBehaviour
     [SerializeField]
     GameObject mainCamera;
 
+    bool playerDead;
+
     void Start()
     {
+        playerDead = false;
         score = 0;
         slider.value = 0.3f;
         currentHp = 30; // 初期HPは30固定
@@ -107,14 +110,20 @@ public class PlayerHealthManager : MonoBehaviour
 
         if (currentHp <= 0)
         {
-            //Debug.Log("Game Over");
-            slider.gameObject.SetActive(false);
-            se.PlayOneShot(se.clip);
+            if (playerDead == false)
+            {
+                //Debug.Log("Game Over");
+                slider.gameObject.SetActive(false);
 
-            Invoke("ShakeCamera", 1.0f);
-            Invoke("PlayerDirection", 1.5f);
-            Invoke("PlayerMove", 2.0f);
-            Invoke("SceneMove", 3.0f);
+                playerDead = true;
+                se.PlayOneShot(se.clip);
+                Debug.Log(se);
+
+                Invoke("ShakeCamera", 1.0f);
+                Invoke("PlayerDirection", 1.5f);
+                Invoke("PlayerMove", 2.0f);
+                Invoke("SceneMove", 3.0f);
+            }
         }
     }
 
