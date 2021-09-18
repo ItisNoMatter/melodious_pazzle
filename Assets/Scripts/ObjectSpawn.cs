@@ -139,8 +139,8 @@ public class ObjectSpawn : MonoBehaviour
 			//とりあえず空間ができるように障害物を配置
 
 			// TODO:障害物の配置方法の検討
-			Instantiate(obstacle, new Vector2(6.0f, melodyscore[melodycount] - 3), Quaternion.identity);
-			Instantiate(obstacle, new Vector2(6.0f, melodyscore[melodycount] + 3), Quaternion.identity);
+			Instantiate(obstacle, new Vector2(6.0f, melodyscore[melodycount] - 2.7f), Quaternion.identity);
+			Instantiate(obstacle, new Vector2(6.0f, melodyscore[melodycount] + 2.7f), Quaternion.identity);
 
 			melodycount++;
 		}));

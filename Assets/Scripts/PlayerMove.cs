@@ -16,7 +16,7 @@ public class PlayerMove : MonoBehaviour
 	[SerializeField] public GameObject locusObject; //経過した時間を受け取る変数
 	
 
-
+	/*
 	//	[SerializeField] string FilePath;
 	string Title;
 	List<GameObject> Notes;
@@ -60,45 +60,43 @@ public class PlayerMove : MonoBehaviour
 	// 譜面を読み込むための関数
 	public void JsonReader()
 	{
-		string inputString = Resources.Load<TextAsset>("melody").ToString();
+		//string inputString = Resources.Load<TextAsset>("melody").ToString();
 
 		InputJson inputjson = JsonUtility.FromJson<InputJson>(inputString);
-		//Title = json["title"].Get<string>();
-		//bpm = 60 / float.Parse(json["bpm"].Get<string>());
-
+		
 		foreach(var track in inputjson.tracks){
 			foreach(var note in track.notes)
             {
-				//ticksList.Add(note.ticks);
-				timeList.Add(note.time);
+				
+				//timeList.Add(note.time);
 			}
 		}
 	}
-
+	*/
 
 	void Start()
     {
 
-		JsonReader();
+		//JsonReader();
 		
 		GameObject obj = GameObject.Find("Field Camera");
 		_fieldCamera = obj.GetComponent<Camera>();
 
 		//遅れる秒数を変化させたい
-		delay = timeList[0]+4.178f+0.2f;
+		//delay = timeList[0]+4.178f+0.2f;
 		
 
 		// コルーチンの起動
-		StartCoroutine(DelayCoroutine(delay, () =>
-		{
+		//StartCoroutine(DelayCoroutine(delay, () =>
+		//{
 			// X秒後にここの処理が実行される
-			Instantiate(locusObject, this.transform.position, Quaternion.identity);
-		}));
+			
+		//}));
 
 	}
 
 	// 一定時間後に処理を呼び出すコルーチン
-	private IEnumerator DelayCoroutine(float seconds, Action action)
+	/*private IEnumerator DelayCoroutine(float seconds, Action action)
 	{
 		while (true)
 		{
@@ -106,15 +104,14 @@ public class PlayerMove : MonoBehaviour
 			action?.Invoke();
 			for (int n = 0; n < timeList.Count - 1; n++) 
 			{ 
-				//seconds = (ticksList[n + 1] - ticksList[n])*(60/(480*150));
-				//seconds = (ticksList[n + 1] - ticksList[n])/1000;
+				
 				seconds = (timeList[n + 1] - timeList[n]);
 				yield return new WaitForSeconds(seconds);
 				action?.Invoke();
 				
             }
 		}
-	}
+	}*/
 
 
 	// Update is called once per frame
@@ -124,7 +121,7 @@ public class PlayerMove : MonoBehaviour
 		
 		if (Input.GetKey("up") | Input.GetKey("w"))
 		{
-			if (playerPosition.y > getScreenTopRight().y)
+			if (playerPosition.y > getScreenTopRight().y+0.2f)
 			{
 				transform.position -= transform.up * speed * Time.deltaTime;
 			}
@@ -159,5 +156,14 @@ public class PlayerMove : MonoBehaviour
 		// 画面の右上を取得
 		Vector3 topRight = _fieldCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0.0f));
 		return topRight;
+	}
+	void OnTriggerEnter2D(Collider2D collision){
+
+		if(collision.gameObject.tag=="powerUpLv1"||collision.gameObject.tag=="powerUpLv2"||collision.gameObject.tag=="powerUpLv3"){
+			Instantiate(locusObject, this.transform.position, Quaternion.identity);
+			
+		}
+		
+
 	}
 }
