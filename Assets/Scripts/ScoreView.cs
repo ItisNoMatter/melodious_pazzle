@@ -68,9 +68,10 @@ public class ScoreView : MonoBehaviour
 
         scoreText.text = string.Format("Score:{0}", score);
 
-//        if (EditorUtility.DisplayDialog("Result", "結果をTwitterで共有しよう！", "Twitterを開く", "閉じる"))
-//        {
-            naichilab.UnityRoomTweet.Tweet("ramencadence", "RamenCadenceでハイスコア" + highScore + "を取得しました！");
+        // WebGLビルドの際に、EditorUtilityでエラーが生じてしまったため一度コメントアウト
+        //        if (EditorUtility.DisplayDialog("Result", "結果をTwitterで共有しよう！", "Twitterを開く", "閉じる"))
+        //        {
+        naichilab.UnityRoomTweet.Tweet("ramencadence", "RamenCadenceでハイスコア" + highScore + "を取得しました！");
 //        }
 //        else
         {
