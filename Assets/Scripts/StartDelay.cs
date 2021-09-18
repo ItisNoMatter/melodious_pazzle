@@ -12,7 +12,7 @@ public class StartDelay : MonoBehaviour
     void Start()
     {
         audiosource=GetComponent<AudioSource>();
-        StartCoroutine(DelayCoroutine((2.34f+4.178f), () =>
+        StartCoroutine(DelayCoroutine((5.655f), () =>
 		{
 			// X秒後にここの処理が実行される
 			audiosource.PlayOneShot(BGM);
